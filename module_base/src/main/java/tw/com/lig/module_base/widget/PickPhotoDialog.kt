@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.Gravity
 import tw.com.lig.module_base.R
 import kotlinx.android.synthetic.main.layout_pick_photo_dialog.*
-import org.jetbrains.anko.onClick
 
 
 class PickPhotoDialog(context: Context) : BaseDialog(context) {
@@ -19,15 +18,15 @@ class PickPhotoDialog(context: Context) : BaseDialog(context) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window?.setGravity(Gravity.BOTTOM)
-        window?.setWindowAnimations(tw.com.lig.module_base.R.style.bottomDialogAnim) // 添加動畫
-        tv_cancel.onClick {
+        window?.setWindowAnimations(R.style.bottomDialogAnim) // 添加動畫
+        tv_cancel.setOnClickListener {
             dismiss()
         }
-        tv_album.onClick {
+        tv_album.setOnClickListener {
             dismiss()
             onConfirmListener?.invoke(0)
         }
-        tv_capture.onClick {
+        tv_capture.setOnClickListener {
             dismiss()
             onConfirmListener?.invoke(1)
         }

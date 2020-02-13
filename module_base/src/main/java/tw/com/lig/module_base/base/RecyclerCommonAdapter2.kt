@@ -3,8 +3,6 @@ package tw.com.lig.module_base.base
 import android.view.View
 import android.view.ViewGroup
 import tw.com.lig.module_base.utils.inflate
-import org.jetbrains.anko.onClick
-import org.jetbrains.anko.onLongClick
 
 
 class RecyclerCommonAdapter2<T>( private val layoutId: Int, private var items: List<T>, val init: (View, T) -> Unit): RecyclerBaseAdapter2<RecyclerCommonAdapter2.ItemHolder<T>>() {
@@ -29,17 +27,17 @@ class RecyclerCommonAdapter2<T>( private val layoutId: Int, private var items: L
         val item = items.get(position)
 
         vh.bind(item)
-        vh.itemView.onClick {
+        vh.itemView.setOnClickListener {
             mOnItemClickListener?.apply {
                 mOnItemClickListener!!(position)
             }
 
         }
 
-        vh.itemView.onLongClick {
+        vh.itemView.setOnLongClickListener {
             mOnItemLongClickListener?.apply {
                 mOnItemLongClickListener!!(position)
-                return@onLongClick true
+                return@setOnLongClickListener true
             }
             false
 

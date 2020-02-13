@@ -41,8 +41,7 @@ import tw.com.lig.module_base.global.AppContext
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import org.jetbrains.anko.imageResource
-import org.jetbrains.anko.toast
+import tw.com.lig.module_base.utils.toast.ToastUtils
 
 
 fun ViewGroup.inflate(layoutRes: Int): View {
@@ -421,12 +420,12 @@ fun View.asStatusBar() {
 }
 
 fun Activity.openBrowser() {
-    var pm = getPackageManager();
-    var intents = Intent(Intent.ACTION_VIEW);
-    intents.addCategory(Intent.CATEGORY_BROWSABLE);
-    intents.setData(Uri.parse("http://"));
+    val pm = packageManager
+    val intents = Intent(Intent.ACTION_VIEW)
+    intents.addCategory(Intent.CATEGORY_BROWSABLE)
+    intents.data = Uri.parse("http://")
 
-    var list = pm.queryIntentActivities(intents, PackageManager.GET_INTENT_FILTERS);
+    val list = pm.queryIntentActivities(intents, PackageManager.GET_INTENT_FILTERS)
 //    print(list)
     val packageName = list.getOrNull(0)?.activityInfo?.packageName
     packageName?.let {
@@ -436,32 +435,36 @@ fun Activity.openBrowser() {
             startActivity(shortcutIntent)
         } catch (e: Exception) {
             e.printStackTrace()
-            if (e is java.lang.SecurityException) {
+            if (e is SecurityException) {
 
                 try {
-                    var startIntent = Intent()
+                    val startIntent = Intent()
                     startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     var componentName: ComponentName? = null
                     val brand = Build.BRAND
 //            LogUtils.e("launchIt zss brand===", brand);
-                    if (brand.contains("nubia")) {
-                        //適配努比亞打不開QQ音樂的問題，需要開啟自啟動權限
-                        componentName = ComponentName("cn.nubia.security2",
+                    when {
+                        brand.contains("nubia") -> {
+                            //適配努比亞打不開QQ音樂的問題，需要開啟自啟動權限
+                            componentName = ComponentName("cn.nubia.security2",
                                 "cn.nubia.security.appmanage.selfstart.ui.SelfStartActivity");
-                        startIntent.setComponent(componentName)
-                        startActivity(startIntent)
-                    } else if (brand.contains("vivo")) {
-                        //適配vivo Xplay6半屏打不開QQ音樂的問題，需要開啟關聯啟動權限
-                        componentName = ComponentName("com.vivo.appfilter",
+                            startIntent.component = componentName
+                            startActivity(startIntent)
+                        }
+                        brand.contains("vivo") -> {
+                            //適配vivo Xplay6半屏打不開QQ音樂的問題，需要開啟關聯啟動權限
+                            componentName = ComponentName("com.vivo.appfilter",
                                 "com.vivo.appfilter.activity.StartupManagerActivityRom30");
-                        startIntent.setComponent(componentName)
-                        startActivity(startIntent)
-                    }else{
-                        toast("打開失敗，請聯繫客服")
+                            startIntent.component = componentName
+                            startActivity(startIntent)
+                        }
+                        else -> {
+                            ToastUtils.showToast(applicationContext, "打開失敗，請聯繫客服")
+                        }
                     }
 
                 } catch (e1: Exception) {
-                    e1.printStackTrace();
+                    e1.printStackTrace()
                 }
 
             }
@@ -521,7 +524,7 @@ fun Activity.openMarket() {
             startActivity(shortcutIntent)
         } catch (e: Exception) {
             e.printStackTrace()
-            toast("打開失敗，請聯繫客服")
+            ToastUtils.showToast(applicationContext, "打開失敗，請聯繫客服")
 
         }
 
@@ -530,30 +533,23 @@ fun Activity.openMarket() {
 }
 
 fun isInstalled(context: Context, packageName: String): Boolean {
-    var packageInfo: PackageInfo?
-    try {
-        packageInfo = context.packageManager.getPackageInfo(packageName, 0)
+    val packageInfo: PackageInfo? = try {
+        context.packageManager.getPackageInfo(packageName, 0)
     } catch (e: PackageManager.NameNotFoundException) {
-        packageInfo = null
+        null
         //                e.printStackTrace();
     }
 
-    return if (packageInfo == null) {
-        false
-    } else {
-        true
-    }
-
-
+    return packageInfo != null
 }
 
 fun Activity.openPhone() {
 
-    var intents = Intent(Intent.ACTION_DIAL);
-    intents.addCategory(Intent.CATEGORY_DEFAULT);
+    val intents = Intent(Intent.ACTION_DIAL)
+    intents.addCategory(Intent.CATEGORY_DEFAULT)
 //                                                       intents.setData(Uri.parse("http://"));
 
-    var list = packageManager?.queryIntentActivities(intents, PackageManager.GET_INTENT_FILTERS);
+    val list = packageManager?.queryIntentActivities(intents, PackageManager.GET_INTENT_FILTERS)
     val packageName = list?.getOrNull(0)?.activityInfo?.packageName
     packageName?.let {
         val shortcutIntent = packageManager?.getLaunchIntentForPackage(it)
@@ -581,7 +577,7 @@ fun <T> select(isTrue: Boolean, param1: () -> T, param2: () -> T) = if (isTrue) 
 fun Bitmap.scale(scaleRatio:Float):Bitmap{
     val matrix = Matrix()
     matrix.postScale(scaleRatio, scaleRatio) //長和寬放大縮小的比例
-    return Bitmap.createBitmap(this, 0, 0, this.getWidth(), this.getHeight(), matrix, true)
+    return Bitmap.createBitmap(this, 0, 0, this.width, this.height, matrix, true)
 }
 
 fun TextView.strike(){

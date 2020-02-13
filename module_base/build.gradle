@@ -43,6 +43,7 @@ dependencies {
     api "androidx.recyclerview:recyclerview:1.1.0"
     api "androidx.constraintlayout:constraintlayout:1.1.3"
     api 'com.google.android.material:material:1.2.0-alpha04'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha03'
     
     //network
     api("com.squareup.retrofit2:retrofit:2.7.1") { //注意這裡的配置
@@ -80,8 +81,8 @@ dependencies {
 
     //tools
     implementation "javax.annotation:jsr250-api:1.0"
-    api 'org.jetbrains.anko:anko-sdk15:0.8.2'
-    api 'org.jetbrains.anko:anko-appcompat-v7:0.10.7'
+    //api 'org.jetbrains.anko:anko-sdk15:0.8.2'
+    //api 'org.jetbrains.anko:anko-appcompat-v7:0.10.7'
     api 'top.zibin:Luban:1.1.8'
     implementation 'androidx.multidex:multidex:2.0.1'
     api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
