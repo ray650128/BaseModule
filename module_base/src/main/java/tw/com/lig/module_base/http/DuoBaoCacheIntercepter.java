@@ -60,13 +60,13 @@ public class DuoBaoCacheIntercepter implements Interceptor{
             body.writeTo(buffer);
         }
 
-        String params = buffer.readString(Charset.forName("UTF-8")); //獲取請求参數
+        String params = buffer.readString(Charset.forName("UTF-8")); //獲取請求參數
         Response response = null;
         if (TDevice.isNetworkConnected(AppContext.getContext())) {
             int maxAge = 60 * 60*24;
-            //如果網路正常，执行請求。
+            //如果網路正常，執行請求。
             Response originalResponse = chain.proceed(request);
-            //獲取MediaType，用于重新構建ResponseBody
+            //獲取MediaType，用於重新構建ResponseBody
             MediaType type = originalResponse.body().contentType();
 
 
@@ -84,7 +84,7 @@ public class DuoBaoCacheIntercepter implements Interceptor{
             }
 
 
-            //獲取body位元組即响應，用于存入資料库和重新構建ResponseBody
+            //獲取body位元組即響應，用於存入資料庫和重新構建ResponseBody
 //            byte[] bs = originalResponse.body().bytes();
 
             byte[] bs=responseResult.getBytes();
@@ -92,11 +92,11 @@ public class DuoBaoCacheIntercepter implements Interceptor{
                     .removeHeader("Pragma")
                     .removeHeader("Cache-Control")
                     .header("Cache-Control", "public, max-age=" + maxAge)
-                    //重新構建body，原因在于body只能調用一次，之後就關闭了。
+                    //重新構建body，原因在於body只能調用一次，之後就關閉了。
                     .body(ResponseBody.create(type, bs))
                     .build();
-          /*  if(!isNoCacheUrl(url)){//如果这個url需要加快取
-                //將响應插入資料库
+          /*  if(!isNoCacheUrl(url)){//如果這個url需要加快取
+                //將響應插入資料庫
 //                PermissionUtil.sendSms(new PermissionUtil.RequestPermission() {
 //                    @Override
 //                    public void onRequestPermissionSuccess() {
@@ -115,15 +115,15 @@ public class DuoBaoCacheIntercepter implements Interceptor{
 
 
         } else {
-            //没有網路的時候，由于Okhttp没有快取post請求，所以不要調用chain.proceed(request)，會导致連接不上伺服器而抛出異常（504）
-            String b = cacheDao.queryResponse(url, params); //读出响應
+            //沒有網路的時候，由於Okhttp沒有快取post請求，所以不要調用chain.proceed(request)，會導致連接不上伺服器而拋出異常（504）
+            String b = cacheDao.queryResponse(url, params); //讀出響應
             if(b!=null){
                 Log.d("OkHttp", "request:" + url);
                 Log.d("OkHttp", "request method:" + request.method());
                 Log.d("OkHttp", "response body:" + b);
                 int maxStale = 60 * 60 * 24 * 28;
              try {
-                 //構建一個新的response响應结果
+                 //構建一個新的response響應結果
                  response = new Response.Builder()
                          .removeHeader("Pragma")
                          .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)

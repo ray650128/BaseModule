@@ -25,7 +25,7 @@ import static tw.com.lig.module_base.utils.RoundCornersTransformation.CornerType
  *     class  : com.xiaweizi.cornerslibrary.RoundCornersTransformation
  *     e-mail : 1012126908@qq.com
  *     time   : 2017/08/18
- *     desc   : 根据需求，對圖片定制指定的圆角
+ *     desc   : 根據需求，對圖片定製指定的圓角
  * </pre>
  */
 
@@ -78,13 +78,13 @@ public class RoundCornersTransformation implements Transformation<Bitmap> {
         RIGHT_TOP,
         /** 右下 */
         RIGHT_BOTTOM,
-        /** 左侧 */
+        /** 左側 */
         LEFT,
-        /** 右侧 */
+        /** 右側 */
         RIGHT,
-        /** 下侧 */
+        /** 下側 */
         BOTTOM,
-        /** 上侧 */
+        /** 上側 */
         TOP,
     }
 

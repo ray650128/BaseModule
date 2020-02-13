@@ -63,7 +63,7 @@ fun ImageView.loadUrl(url: String?) {
 //
 //            .into(this)
 //}
-//以後統一用这個方法，如果是RoundedImageView需要事先設定好RoundedImageView的参數
+//以後統一用這個方法，如果是RoundedImageView需要事先設定好RoundedImageView的參數
 
 fun ImageView.loadUrlWithPlaceHolder(url: String?, defautImage: Int,isCenterCrop:Boolean=false) {
     var requestOptions1 = RequestOptions()
@@ -172,7 +172,7 @@ fun kError(tag: String, errorInfo: String) {
 //        override fun onScrollStateChanged(recyclerView: androidx.recyclerview.widget.RecyclerView?, newState: Int) {
 //            super.onScrollStateChanged(recyclerView, newState)
 //            if (newState == androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE) {
-//                Glide.with(context).resumeRequests()//恢复Glide載入圖片
+//                Glide.with(context).resumeRequests()//恢復Glide載入圖片
 //            } else {
 //                Glide.with(context).pauseRequests()//禁止Glide載入圖片
 //            }
@@ -311,7 +311,7 @@ fun Observable<BaseEntity<Any>>.Main():Observable<BaseEntity<Any>>{
 
                                 *//*         ARouter.getInstance().build(ARouterConstant.VCODE_LOGIN)
                                     .withFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-//                                    .withBoolean("isJumpToMain", true)     //传值 ，類似于putExtra
+//                                    .withBoolean("isJumpToMain", true)     //傳值 ，類似於putExtra
                                     .navigation();
                             new android.os.Handler().postDelayed(new Runnable() {
                                 @Override
@@ -342,7 +342,7 @@ fun Observable<BaseEntity<Any>>.Main():Observable<BaseEntity<Any>>{
                                     rxObserverFilter.getmBaseView().showToast("token失效，baseView為空")
                                 }
                             }
-                        } else if ((it as BaseEntity<*>).isAccountLocked) {//被冻结
+                        } else if ((it as BaseEntity<*>).isAccountLocked) {//被凍結
                             SPutils.put(AppContext.getContext(), SPConstant.KEY_TOKEN, "")
                             if (rxObserverFilter.getmBaseView() != null) {
                                 rxObserverFilter.getmBaseView().showAccountExceptionDialog()
@@ -363,7 +363,7 @@ fun Observable<BaseEntity<Any>>.Main():Observable<BaseEntity<Any>>{
                         } else {
                             val b = rxObserverFilter.onCodeError(it)
 
-                            if (!b) {//若自己不处理就默认处理
+                            if (!b) {//若自己不處理就預設處理
                                 rxObserverFilter.handleError(Throwable((it as BaseEntity<*>).message))
                             }
                         }
@@ -445,19 +445,19 @@ fun Activity.openBrowser() {
                     val brand = Build.BRAND
 //            LogUtils.e("launchIt zss brand===", brand);
                     if (brand.contains("nubia")) {
-                        //适配努比亚打不开QQ音乐的問題，需要開啟自启动权限
+                        //適配努比亞打不開QQ音樂的問題，需要開啟自啟動權限
                         componentName = ComponentName("cn.nubia.security2",
                                 "cn.nubia.security.appmanage.selfstart.ui.SelfStartActivity");
                         startIntent.setComponent(componentName)
                         startActivity(startIntent)
                     } else if (brand.contains("vivo")) {
-                        //适配vivo Xplay6半屏打不开QQ音乐的問題，需要開啟關联启动权限
+                        //適配vivo Xplay6半屏打不開QQ音樂的問題，需要開啟關聯啟動權限
                         componentName = ComponentName("com.vivo.appfilter",
                                 "com.vivo.appfilter.activity.StartupManagerActivityRom30");
                         startIntent.setComponent(componentName)
                         startActivity(startIntent)
                     }else{
-                        toast("打开失败，請聯繫客服")
+                        toast("打開失敗，請聯繫客服")
                     }
 
                 } catch (e1: Exception) {
@@ -487,29 +487,29 @@ fun Activity.openMarket() {
     val appMarketPackageNames = arrayOf(
 
             "com.xiaomi.market", //小米
-            "com.huawei.appmarket", //华為
+            "com.huawei.appmarket", //華為
             "com.oppo.market", //oppo
             "com.meizu.mstore", //魅族
             "com.bbk.appstore", //vivo
             "com.sec.android.app.samsungapps", //三星
-            "com.smartisan.appstore", //锤子
-            "com.smartisanos.appstore",//坚果手機
+            "com.smartisan.appstore", //鎚子
+            "com.smartisanos.appstore",//堅果手機
             "com.oneplus.market", //一加手機
-            "com.lenovo.leos.appstore", //联想應用商店
-            "zte.com.market", //中兴
-            "com.letv.app.appstore", //乐视
+            "com.lenovo.leos.appstore", //聯想應用商店
+            "zte.com.market", //中興
+            "com.letv.app.appstore", //樂視
             "com.android.meitu.appstore",//美圖
             "com.gionee.aora.market",//金立
-            "cn.nubia.neostore", //努比亚
+            "cn.nubia.neostore", //努比亞
             "com.baidu.appsearch", //百度手機助手
-            "com.tencent.android.qqdownloader", //應用宝
+            "com.tencent.android.qqdownloader", //應用寶
             "com.qihoo.appstore", //360手機助手
             "com.sogou.appmall", //搜狗手機助手
-            "com.wandoujia.phoenix2", //豌豆荚
+            "com.wandoujia.phoenix2", //豌豆莢
 
             "com.dragon.android.pandaspace", //91手機助手
             "com.hiapk.marketpho", //安智應用商店
-            "com.yingyonghui.market", //應用汇
+            "com.yingyonghui.market", //應用匯
             "com.pp.assistant", //pp手機助手
             "com.tencent.qqpimsecure")//qq手機管家
     appMarketPackageNames.first {
@@ -521,7 +521,7 @@ fun Activity.openMarket() {
             startActivity(shortcutIntent)
         } catch (e: Exception) {
             e.printStackTrace()
-            toast("打开失败，請聯繫客服")
+            toast("打開失敗，請聯繫客服")
 
         }
 
@@ -577,10 +577,10 @@ fun <T> select(isTrue: Boolean, param1: () -> T, param2: () -> T) = if (isTrue) 
 //    }
 //
 //}
-//對圖片进行压缩
+//對圖片進行壓縮
 fun Bitmap.scale(scaleRatio:Float):Bitmap{
     val matrix = Matrix()
-    matrix.postScale(scaleRatio, scaleRatio) //长和宽放大缩小的比例
+    matrix.postScale(scaleRatio, scaleRatio) //長和寬放大縮小的比例
     return Bitmap.createBitmap(this, 0, 0, this.getWidth(), this.getHeight(), matrix, true)
 }
 
@@ -590,7 +590,7 @@ fun TextView.strike(){
 
 
 /**
- * scaleRatio默认压缩比例為1，即不进行压缩
+ * scaleRatio預設壓縮比例為1，即不進行壓縮
  */
 //fun TextView.setTextWithImageUrlLeft(text:String,imageUrl:String,scaleRatio:Float=1.0f){
 //
@@ -601,7 +601,7 @@ fun TextView.strike(){
 //            val displayMetrics = resources.displayMetrics
 //            val density = displayMetrics.density
 //            var drawables:BitmapDrawable? = null
-//            //獲取一张圖片
+//            //獲取一張圖片
 //            if (density==2.0f){
 //                drawables = BitmapDrawable(resource)
 //            }else{
@@ -610,7 +610,7 @@ fun TextView.strike(){
 ////            val drawable = BitmapDrawable(resource)
 //
 //            drawables.setBounds(0, 0, drawables.getMinimumWidth(), drawables.getMinimumHeight())
-//            //居中對齐imageSpan
+//            //居中對齊imageSpan
 //            val imageSpan = MixtureTextView(drawables)
 //            sp.setSpan(imageSpan, 0, 1, ImageSpan.ALIGN_BASELINE)
 //            setText(sp)
@@ -629,7 +629,7 @@ fun TextView.setDrawableLeft(drawable: Int) {
 fun TextView.shrink(content:String,shrinkCount:Int){
     val sb=StringBuilder()
     for (i in 0..shrinkCount-1){
-        sb.append("缩")
+        sb.append("縮")
     }
 
     val span = SpannableStringBuilder(sb.toString() + content)

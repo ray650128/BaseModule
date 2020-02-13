@@ -4,7 +4,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="title_bar_height">45dp</dimen>
-    <dimen name="progress_size">60dp</dimen><!--loading的宽和高-->
+    <dimen name="progress_size">60dp</dimen><!--loading的寬和高-->
     <dimen name="text_8">8sp</dimen>
     <dimen name="text_10">10sp</dimen>
     <dimen name="text_11">11sp</dimen>
@@ -35,7 +35,7 @@
     <dimen name="margin_left_18">18dp</dimen>
     <dimen name="margin_left_15">15dp</dimen>
     <dimen name="paddingLeft_18">18dp</dimen>
-    <!--按钮的圆角半径-->
+    <!--按鈕的圓角半徑-->
     <dimen name="button_corner_radius">4dp</dimen>
     <dimen name="arc_max_height">50dp</dimen>
 </resources>

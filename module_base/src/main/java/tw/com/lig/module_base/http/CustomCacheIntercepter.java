@@ -59,18 +59,18 @@ public class CustomCacheIntercepter implements Interceptor{
 
         RequestBody requestBody = request.body();
 
-//        if (requestBody != null) {//post方法(改為下面的这种方法判断post方法)
+//        if (requestBody != null) {//post方法(改為下面的這種方法判斷post方法)
         if (request.method().toLowerCase().equals("post") ){//post方法
             Buffer buffer = new Buffer();
             requestBody.writeTo(buffer);
-            String params = buffer.readString(Charset.forName("UTF-8")); //獲取請求参數
+            String params = buffer.readString(Charset.forName("UTF-8")); //獲取請求參數
 
             Response response = null;
             if (TDevice.isNetworkConnected(AppContext.getContext())) {
                 int maxAge = 60 * 60*24;
-                //如果網路正常，执行請求。
+                //如果網路正常，執行請求。
                 Response originalResponse = chain.proceed(request);
-                //獲取MediaType，用于重新構建ResponseBody
+                //獲取MediaType，用於重新構建ResponseBody
                 MediaType type = originalResponse.body().contentType();
 
 
@@ -92,7 +92,7 @@ public class CustomCacheIntercepter implements Interceptor{
             }*/
 
 
-                //獲取body位元組即响應，用于存入資料库和重新構建ResponseBody
+                //獲取body位元組即響應，用於存入資料庫和重新構建ResponseBody
 //            byte[] bs = originalResponse.body().bytes();
 
                 byte[] bs=responseResult.getBytes();
@@ -100,7 +100,7 @@ public class CustomCacheIntercepter implements Interceptor{
                         .removeHeader("Pragma")
                         .removeHeader("Cache-Control")
                         .header("Cache-Control", "public, max-age=" + maxAge)
-                        //重新構建body，原因在于body只能調用一次，之後就關闭了。
+                        //重新構建body，原因在於body只能調用一次，之後就關閉了。
                         .body(ResponseBody.create(type, bs))
                         .build();
 
@@ -109,15 +109,15 @@ public class CustomCacheIntercepter implements Interceptor{
 //            Looper.prepare();
 //            Toast.makeText(AppContext.getContext(), "連接異常，請檢查網路", Toast.LENGTH_SHORT).show();
 //            Looper.loop();
-                //没有網路的時候，由于Okhttp没有快取post請求，所以不要調用chain.proceed(request)，會导致連接不上伺服器而抛出異常（504）
-                String b = cacheDao.queryResponse(url, params); //读出响應
+                //沒有網路的時候，由於Okhttp沒有快取post請求，所以不要調用chain.proceed(request)，會導致連接不上伺服器而拋出異常（504）
+                String b = cacheDao.queryResponse(url, params); //讀出響應
                 if(b!=null){
                     Log.d("OkHttp", "request:" + url);
                     Log.d("OkHttp", "request method:" + request.method());
                     Log.d("OkHttp", "response body:" + b);
                     int maxStale = 60 * 60 * 24 * 28;
                     try {
-                        //構建一個新的response响應结果
+                        //構建一個新的response響應結果
                         response = new Response.Builder()
                                 .removeHeader("Pragma")
                                 .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
@@ -146,15 +146,15 @@ public class CustomCacheIntercepter implements Interceptor{
             Response response = null;
             if (TDevice.isNetworkConnected(AppContext.getContext())) {//有網路
                 int maxAge = 60 * 60*24;
-                //如果網路正常，执行請求。
+                //如果網路正常，執行請求。
                 Response originalResponse = chain.proceed(request);
-                //獲取MediaType，用于重新構建ResponseBody
+                //獲取MediaType，用於重新構建ResponseBody
                 MediaType type = originalResponse.body().contentType();
 
 
                 String responseResult = originalResponse.body().string();
                 Log.e("responseResult",responseResult);
-                //注意這裡把用户的token和urL拼在了一起
+                //注意這裡把用戶的token和urL拼在了一起
                 cacheDao.insertGetResponse(url, responseResult);
        /*     try {
 //                JSONObject jb=new JSONObject(responseResult);
@@ -168,7 +168,7 @@ public class CustomCacheIntercepter implements Interceptor{
             }*/
 
 
-                //獲取body位元組即响應，用于存入資料库和重新構建ResponseBody
+                //獲取body位元組即響應，用於存入資料庫和重新構建ResponseBody
 //            byte[] bs = originalResponse.body().bytes();
 
                 byte[] bs=responseResult.getBytes();
@@ -176,24 +176,24 @@ public class CustomCacheIntercepter implements Interceptor{
                         .removeHeader("Pragma")
                         .removeHeader("Cache-Control")
                         .header("Cache-Control", "public, max-age=" + maxAge)
-                        //重新構建body，原因在于body只能調用一次，之後就關闭了。
+                        //重新構建body，原因在於body只能調用一次，之後就關閉了。
                         .body(ResponseBody.create(type, bs))
                         .build();
 
 
-            } else {//没網路
+            } else {//沒網路
 //            Looper.prepare();
 //            Toast.makeText(AppContext.getContext(), "連接異常，請檢查網路", Toast.LENGTH_SHORT).show();
 //            Looper.loop();
-                //没有網路的時候，由于Okhttp没有快取post請求，所以不要調用chain.proceed(request)，會导致連接不上伺服器而抛出異常（504）
-                String b = cacheDao.queryGetResponse(url); //读出响應
+                //沒有網路的時候，由於Okhttp沒有快取post請求，所以不要調用chain.proceed(request)，會導致連接不上伺服器而拋出異常（504）
+                String b = cacheDao.queryGetResponse(url); //讀出響應
                 if(b!=null){
                     Log.d("OkHttp", "request:" + url);
                     Log.d("OkHttp", "request method:" + request.method());
                     Log.d("OkHttp", "response body:" + b);
                     int maxStale = 60 * 60 * 24 * 28;
                     try {
-                        //構建一個新的response响應结果
+                        //構建一個新的response響應結果
                         response = new Response.Builder()
                                 .removeHeader("Pragma")
                                 .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
@@ -220,7 +220,7 @@ public class CustomCacheIntercepter implements Interceptor{
            /* if (TDevice.isNetworkConnected(AppContext.getContext())) {//有網路
                 return chain.proceed(request);
 
-            }else{//没有網路
+            }else{//沒有網路
                 return chain.proceed(request);
             }*/
 

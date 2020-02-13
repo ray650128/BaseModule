@@ -40,9 +40,9 @@ import retrofit2.HttpException;
 
 public abstract class RxObserverFilter<T> implements Observer<T> {
     private BaseView mBaseView;
-    private boolean showErrorIfNetDisconnect =true;  //是否在没網路的時候就显示errowView
-    private boolean showContentIfSuccess =true;//是否在網路請求成功的時候就显示出contentview
-    private boolean showErrorIfCodeNotSuccess =true;//是否在網路請求code不為0并且有baseLayout的時候就显示未知異常，(可能需要重寫onCodeError方法)
+    private boolean showErrorIfNetDisconnect =true;  //是否在沒網路的時候就顯示errowView
+    private boolean showContentIfSuccess =true;//是否在網路請求成功的時候就顯示出contentview
+    private boolean showErrorIfCodeNotSuccess =true;//是否在網路請求code不為0並且有baseLayout的時候就顯示未知異常，(可能需要重寫onCodeError方法)
 
     private static final String TAG = RxObserverFilter.class.getName();
     private static final String JSON_PARSE_EXCEPTION_MSG="Expected BEGIN_ARRAY but was BEGIN_OBJECT";
@@ -106,7 +106,7 @@ public abstract class RxObserverFilter<T> implements Observer<T> {
                                 mBaseView.showToast("token失效，baseView為空");
                             }
                         }
-                    }/*else if(baseEntity.isAccountLocked()){//被冻结
+                    }/*else if(baseEntity.isAccountLocked()){//被凍結
 //                        SPutils.put(AppContext.getContext(), SPConstant.TOKEN,"");
 //                        if(mBaseView!=null){
 //                            mBaseView.showAccountExceptionDialog();
@@ -142,7 +142,7 @@ public abstract class RxObserverFilter<T> implements Observer<T> {
                             }
                         }
                     }
-                    else if(((BaseEntity) t).getCode()!=0){ //code其余非0的情況
+                    else if(((BaseEntity) t).getCode()!=0){ //code其餘非0的情況
 //                        if(mBaseView.hasBaseLayout()){
 //                            mBaseView.showEmptyView();
 //                        }
@@ -159,14 +159,14 @@ public abstract class RxObserverFilter<T> implements Observer<T> {
                                     }else{
                                         boolean b = onCodeError(t);
 
-                                        if (!b) {//若自己不处理就默认处理
+                                        if (!b) {//若自己不處理就預設處理
                                             handleError(new Throwable(((BaseEntity) t).getMessage()));
                                         }
                                     }
                                 }else{
                                     boolean b = onCodeError(t);
 
-                                    if (!b) {//若自己不处理就默认处理
+                                    if (!b) {//若自己不處理就預設處理
                                         handleError(new Throwable(((BaseEntity) t).getMessage()));
                                     }
                                 }
@@ -174,7 +174,7 @@ public abstract class RxObserverFilter<T> implements Observer<T> {
                             }else{
                                 boolean b = onCodeError(t);
 
-                                if (!b) {//若自己不处理就默认处理
+                                if (!b) {//若自己不處理就預設處理
                                     handleError(new Throwable(((BaseEntity) t).getMessage()));
                                 }
                             }
@@ -188,7 +188,7 @@ public abstract class RxObserverFilter<T> implements Observer<T> {
                         }
                         boolean b = onCodeError(t);
 
-                        if (!b) {//若自己不处理就默认处理
+                        if (!b) {//若自己不處理就預設處理
                             handleError(new Throwable(((BaseEntity) t).getMessage()));
                         }
                     }
@@ -262,23 +262,23 @@ public abstract class RxObserverFilter<T> implements Observer<T> {
             HttpException httpException = (HttpException) t;
             msg = StatusCodeUtil.convertStatusCode(httpException);
         } else if (t instanceof ParseException || t instanceof JSONException || t instanceof JsonIOException) {
-            msg = "資料解析错误";
+            msg = "資料解析錯誤";
         } else if (t instanceof NullPointerException) {
-            msg = "未知異常,請聯繫客服人员";
-        } else if (t instanceof EOFException) { //伺服器接口没返回資料
-            msg = "伺服器發生错误";
+            msg = "未知異常,請聯繫客服人員";
+        } else if (t instanceof EOFException) { //伺服器介面沒返回資料
+            msg = "伺服器發生錯誤";
         } else if(t instanceof NetworkOnMainThreadException) {
-            msg = "網路請求不能在主執行緒执行";
+            msg = "網路請求不能在主執行緒執行";
         }else if(t instanceof JsonSyntaxException){
 //              JsonSyntaxException jsonSyntaxException= (JsonSyntaxException) t;
            /*   String localizedMessage = jsonSyntaxException.getLocalizedMessage();
               jsonSyntaxException.
               jsonSyntaxException.g
               JsonObject jsonObject=new JsonObject()*/
-            msg="json解析異常:"+t.getMessage(); //这种情況下很可能是出現了異地登錄的情況
+            msg="json解析異常:"+t.getMessage(); //這種情況下很可能是出現了異地登錄的情況
         }/*else if(t instanceof retrofit2.adapter.rxjava2.HttpException){
 
-            msg="参數错误";
+            msg="參數錯誤";
         }*/
         else{
 
@@ -291,10 +291,10 @@ public abstract class RxObserverFilter<T> implements Observer<T> {
 //        if (BuildConfig.DEBUG_MODEL) {//debug
         if (BuildConfig.DEBUG) {//debug
             if (msg!=null&&msg.contains("End of input at line 1 column 1 path $")) {
-                msg = "服務端請求没有返回结果";
+                msg = "服務端請求沒有返回結果";
             }
         } else {//release
-            //友盟错误分析
+            //友盟錯誤分析
         }
 //        if(BuildConfig.DEBUG){
      /*       Looper.prepare();
@@ -344,7 +344,7 @@ public abstract class RxObserverFilter<T> implements Observer<T> {
     public  abstract void onSuccees(T responseData) throws Exception;
 
     /**
-     * 返回失败
+     * 返回失敗
      *
      * @param e
      * @throws Exception
@@ -371,10 +371,10 @@ public abstract class RxObserverFilter<T> implements Observer<T> {
     };
 
     /**
-     * 返回失败s
+     * 返回失敗s
      *
      * @param responseData
-     * @param //           true:自己主动处理；false ：默认处理
+     * @param //           true:自己主動處理；false ：預設處理
      * @throws Exception
      */
     public  boolean onCodeError(T responseData) throws Exception {
@@ -382,9 +382,9 @@ public abstract class RxObserverFilter<T> implements Observer<T> {
     }
 
     /**
-     *  没有網路或者網路超時，并且不显示errorView的時候
-     *  （主要用在列表載入更多或者下载刷新的時候，重置載入控件的狀態更新UI，
-     *  比如让IRecyclerview的loading狀態变為GONE）
+     *  沒有網路或者網路超時，並且不顯示errorView的時候
+     *  （主要用在列表載入更多或者下載刷新的時候，重置載入控件的狀態更新UI，
+     *  比如讓IRecyclerview的loading狀態變為GONE）
      */
     protected  void onNetTimeOutOrDisconnetedAndDontShowErrorView(){
 

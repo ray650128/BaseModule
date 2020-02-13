@@ -42,11 +42,11 @@ public class CacheDao {
     public String queryResponse(String urlKey, String params) throws UnsupportedEncodingException {
         database = helper.getWritableDatabase();
         String params_decode = URLDecoder.decode(params, "utf-8");
-//        String token= getToken();//正式环境需要對token进行md5加密
+//        String token= getToken();//正式環境需要對token進行md5加密
         Cursor cursor = database.rawQuery("select response from cache where url =? and params =? and token = ?", new String[]{urlKey, params_decode,getToken()});
         while(cursor.moveToNext()){
 
-            String response = cursor.getString(cursor.getColumnIndex("response"));//所有的打標记的點的进度值的集合
+            String response = cursor.getString(cursor.getColumnIndex("response"));//所有的打標記的點的進度值的集合
            return response;
         }
 
@@ -57,12 +57,12 @@ public class CacheDao {
         database = helper.getWritableDatabase();
 //        String decode = URLDecoder.decode(params, "utf-8");
 //        String params_decode = URLDecoder.decode(params, "utf-8");
-//        String token= getToken();//正式环境需要對token进行md5加密
+//        String token= getToken();//正式環境需要對token進行md5加密
 
         Cursor cursor = database.rawQuery("select response from cache where url =? and token = ?", new String[]{urlKey,getToken()});
         while(cursor.moveToNext()){
 
-            String response = cursor.getString(cursor.getColumnIndex("response"));//所有的打標记的點的进度值的集合
+            String response = cursor.getString(cursor.getColumnIndex("response"));//所有的打標記的點的進度值的集合
             return response;
         }
 
@@ -71,7 +71,7 @@ public class CacheDao {
     //增
     public void insertResponse(String urlKey, String params, String response) throws UnsupportedEncodingException {
         database = helper.getWritableDatabase();
-//        String token= getToken();//正式环境需要對token进行md5加密
+//        String token= getToken();//正式環境需要對token進行md5加密
 
         if(!isExist(urlKey,params)){
                 String decode = URLDecoder.decode(params, "utf-8");
@@ -94,15 +94,15 @@ public class CacheDao {
     }
 
     private String getToken() {
-        ////正式环境需要對token进行md5加密
+        ////正式環境需要對token進行md5加密
         return BuildConfig.DEBUG ? SPutils.getString(SPConstant.KEY_TOKEN) : MD5.md5Encode(SPutils.getString(SPConstant.KEY_TOKEN));
     }
 
 
-    //儲存get請求的網路响應
+    //儲存get請求的網路響應
     public void insertGetResponse(String urlKey,  String value) throws UnsupportedEncodingException {
         database = helper.getWritableDatabase();
-//        String token= getToken();//正式环境需要對token进行md5加密
+//        String token= getToken();//正式環境需要對token進行md5加密
 
         if(!isExist(urlKey)){
 //            String decode = URLDecoder.decode(params, "utf-8");
@@ -131,7 +131,7 @@ public class CacheDao {
     }
     public boolean isExist(String urlKey, String params) throws UnsupportedEncodingException {
         database = helper.getWritableDatabase();
-//        String token= getToken();//正式环境需要對token进行md5加密
+//        String token= getToken();//正式環境需要對token進行md5加密
 
         String decode = URLDecoder.decode(params, "utf-8");
         Cursor cursor = database.rawQuery("select url from cache where url =? and params= ? and token = ?", new String[]{urlKey,decode,getToken()});
@@ -142,7 +142,7 @@ public class CacheDao {
         return false;
     };
     public boolean isExist(String urlKey) throws UnsupportedEncodingException {
-//        String token= getToken();//正式环境需要對token进行md5加密
+//        String token= getToken();//正式環境需要對token進行md5加密
 
         database = helper.getWritableDatabase();
 //        String decode = URLDecoder.decode(params, "utf-8");
@@ -156,7 +156,7 @@ public class CacheDao {
     //改
     public void updateResponse(String urlKey, String params, String value) {
     }
-    //删
+    //刪
     public void deleteResponse(String urlKey, String params) {
     }
     //清除所有資料

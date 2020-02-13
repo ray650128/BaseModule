@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:gravity="center_horizontal"
         android:paddingTop="33dp"
-        android:text="确定退出此账号吗？"
+        android:text="確定退出此賬號嗎？"
         android:textColor="#ff333333"
         android:textSize="17sp"
         />
@@ -57,7 +57,7 @@
         android:layout_width="0dp"
         android:gravity="center"
         android:layout_height="0dp"
-        android:text="确定"
+        android:text="確定"
         android:textColor="#ff007aff"
         android:textSize="17sp"
         />

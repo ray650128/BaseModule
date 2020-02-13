@@ -37,7 +37,7 @@ public class NetUtils {
 
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
-//        builder.addInterceptor(ApiClient.addQueryParameterInterceptor);//这個是机呼項目注释的
+//        builder.addInterceptor(ApiClient.addQueryParameterInterceptor);//這個是機呼項目註釋的
         builder.addInterceptor(new CodeInterceptor(AppContext.getContext()));
         builder.addInterceptor(new CacheInterceptor(AppContext.getContext()));
 //        if (TDevice.isDebug()) {
@@ -54,7 +54,7 @@ public class NetUtils {
                 .build();
         retrofit = new Retrofit.Builder()
                 .client(okHttpClient)
-                .baseUrl(BASE_URL) // 定义访問的主机地址
+                .baseUrl(BASE_URL) // 定義訪問的主機地址
                 .addConverterFactory(GsonConverterFactory.create())  //解析方法
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
@@ -71,7 +71,7 @@ public class NetUtils {
     }
 
     /**
-     * 单例模式
+     * 單例模式
      *
      * @return
      */

@@ -27,7 +27,7 @@
         android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/tv_capture"
         android:layout_marginTop="1dp"
-        android:text="相册内选择"
+        android:text="相冊內選擇"
         android:textColor="#ff141417"
         android:background="@color/white"
 

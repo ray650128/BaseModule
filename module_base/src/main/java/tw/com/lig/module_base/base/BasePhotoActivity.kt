@@ -53,20 +53,20 @@ abstract class BasePhotoActivity : BaseKtActivity() {
 
     fun toCamera() {
         try {
-            //             执行拍照前，應該先判断SD卡是否存在
+            //             執行拍照前，應該先判斷SD卡是否存在
             val SDState = Environment.getExternalStorageState()
             if (SDState == Environment.MEDIA_MOUNTED) {
                 /**
-                 * 通过指定圖片儲存路径，解决部分机型onActivityResult回調 data返回為null的情況
+                 * 通過指定圖片儲存路徑，解決部分機型onActivityResult回調 data返回為null的情況
                  */
                 if (getExternalFilesDir(Environment.DIRECTORY_PICTURES) == null)
                     return //todo 判空
-                //獲取與應用相關联的路径
+                //獲取與應用相關聯的路徑
                 val imageFilePath = getExternalFilesDir(Environment.DIRECTORY_PICTURES)!!.absolutePath
                 val formatter = SimpleDateFormat("yyyyMMddHHmmss", Locale.CHINA)
-                //根据当前時間生成圖片的名称
+                //根據當前時間生成圖片的名稱
                 val timestamp = "/" + formatter.format(Date()) + ".jpg"
-                val imageFile = File(imageFilePath, timestamp)// 通过路径创建保存文件
+                val imageFile = File(imageFilePath, timestamp)// 通過路徑創建保存檔案
                 mImagePath = imageFile.absolutePath
                 val mUri = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     FileProvider.getUriForFile(this@BasePhotoActivity, "$packageName.fileprovider", imageFile)
@@ -75,12 +75,12 @@ abstract class BasePhotoActivity : BaseKtActivity() {
 
                 }
 
-                //                Uri imageFileUri = Uri.fromFile(imageFile);// 獲取文件的Uri
+                //                Uri imageFileUri = Uri.fromFile(imageFile);// 獲取檔案的Uri
                 val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, mUri)// 告诉相機拍摄完毕輸出圖片到指定的Uri
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, mUri)// 告訴相機拍攝完畢輸出圖片到指定的Uri
                 startActivityForResult(intent, TAKE_PHOTO_REQUEST_CODE)
             } else {
-                showToast("内存卡不存在")
+                showToast("內存卡不存在")
             }
 
         } catch (e: Exception) {
@@ -98,7 +98,7 @@ abstract class BasePhotoActivity : BaseKtActivity() {
             }
 
             override fun onRequestPermissionFailure() {
-                val message = "請在設定-應用-" + getString(tw.com.lig.module_base.R.string.app_name) + "-权限 中開啟读寫儲存权限，才能进行正常拍照。"
+                val message = "請在設定-應用-" + getString(tw.com.lig.module_base.R.string.app_name) + "-權限 中開啟讀寫儲存權限，才能進行正常拍照。"
                 PermissionsDeniedHelper.Builder(this@BasePhotoActivity)
                         .customTip()
                         .setMessage(message)
@@ -127,7 +127,7 @@ abstract class BasePhotoActivity : BaseKtActivity() {
 
     private fun showTip() {
 //        SPutils.put(SPConstant.ALLOW_CACHE, false)
-        val message = "請在設定-應用-" + getString(R.string.app_name) + "-权限 中開啟读寫儲存权限，才能正常上传圖片和视频。"
+        val message = "請在設定-應用-" + getString(R.string.app_name) + "-權限 中開啟讀寫儲存權限，才能正常上傳圖片和視頻。"
         PermissionsDeniedHelper.Builder(this@BasePhotoActivity)
                 .customTip()
                 .setMessage(message)
@@ -150,14 +150,14 @@ abstract class BasePhotoActivity : BaseKtActivity() {
                         }
 
                     }
-                } else {//無資料使用指定的圖片路径
+                } else {//無資料使用指定的圖片路徑
                     imagePath = mImagePath
                 }
-//                toast("圖片路径$imagePath")
+//                toast("圖片路徑$imagePath")
 //                data?.putExtra("imagePath",imagePath)
 
-                if (isImageCompressed()) {//如果對圖片进行压缩
-                    //對圖片进行压缩
+                if (isImageCompressed()) {//如果對圖片進行壓縮
+                    //對圖片進行壓縮
                     val compressedPicPath = Luban.with(this@BasePhotoActivity).load(File(imagePath)).get().get(0).absolutePath
                     onImageSelected(compressedPicPath)
                 } else {
@@ -182,7 +182,7 @@ abstract class BasePhotoActivity : BaseKtActivity() {
 
 
     /**
-     * 是否對圖片进行压缩
+     * 是否對圖片進行壓縮
      */
     protected fun isImageCompressed(): Boolean {
         return true

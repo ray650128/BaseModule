@@ -44,7 +44,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="2.0.0新版本上线"
+            tools:text="2.0.0新版本上線"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="120dp"

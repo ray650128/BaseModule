@@ -26,7 +26,7 @@ import okio.BufferedSource;
 
 /**
  * Created by ljk on 2017/2/24.
- * 拦截接口返回的狀態碼 3標识需要重新登錄
+ * 攔截介面返回的狀態碼 3標識需要重新登錄
  */
 public class CodeInterceptor implements Interceptor {
     private final Context mContext;
@@ -45,7 +45,7 @@ public class CodeInterceptor implements Interceptor {
         ResponseBody responseBody = response.body();
         long contentLength = responseBody.contentLength();
 
-        //注意 >>>>>>>>> okhttp3.4.1這裡变成了 !HttpHeader.hasBody(response)
+        //注意 >>>>>>>>> okhttp3.4.1這裡變成了 !HttpHeader.hasBody(response)
         //if (!HttpEngine.hasBody(response)) {
         if (!HttpHeaders.hasBody(response)) {
             //END HTTP
@@ -85,7 +85,7 @@ public class CodeInterceptor implements Interceptor {
 
                            /* ARouter.getInstance().build(ARouterConstant.LOGIN)
                                     .withFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-//                                    .withBoolean("isJumpToMain", true)     //传值 ，類似于putExtra
+//                                    .withBoolean("isJumpToMain", true)     //傳值 ，類似於putExtra
                                     .navigation();*/
                             Looper.prepare();
                             Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();

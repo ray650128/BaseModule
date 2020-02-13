@@ -41,7 +41,7 @@ public abstract class BasePresenter<V extends BaseView, M> {
 
 
     public void onDestroy() {
-        unDisposable();//解除订阅
+        unDisposable();//解除訂閱
         this.compositeDisposable = null;
         if (mView != null) {
             mView = null;
@@ -58,7 +58,7 @@ public abstract class BasePresenter<V extends BaseView, M> {
 /*    public  void initData(){
         if(mModel!=null&&mView!=null){
             mModel.initData()
-                    .compose(RxUtils.applySchedulers(mView))//不显示进度条
+                    .compose(RxUtils.applySchedulers(mView))//不顯示進度條
                     .subscribe(new RxObserverFilter<BaseEntity>() {
                         @Override
                         protected void onSuccees(BaseEntity responseData) throws Exception {

@@ -77,7 +77,7 @@ public class ToolbarLayout extends RelativeLayout {
         mTvRight = mTitlebar.findViewById(R.id.tv_right);
         mIvRight = mTitlebar.findViewById(R.id.iv_right);
         mIvRight2=mTitlebar.findViewById(R.id.iv_right2);
-        View iv_title_right = mTitlebar.findViewById(R.id.iv_title_right);//title右侧的一個小圖標
+        View iv_title_right = mTitlebar.findViewById(R.id.iv_title_right);//title右側的一個小圖標
         if (isTitleRightIconVisible){
             iv_title_right.setVisibility(View.VISIBLE);
         }else{
@@ -139,7 +139,7 @@ public class ToolbarLayout extends RelativeLayout {
     }
 
     /**
-     * 居中显示標題
+     * 居中顯示標題
      *
      * @param title
      */
@@ -190,7 +190,7 @@ public class ToolbarLayout extends RelativeLayout {
     }
 
     /**
-     * 这是title 右侧文字,圖標在文字左侧
+     * 這是title 右側文字,圖標在文字左側
      *
      * @param txt
      * @param res
@@ -261,7 +261,7 @@ public class ToolbarLayout extends RelativeLayout {
 
 
     /**
-     * 给toolbar 設定颜色
+     * 給toolbar 設定顏色
      *
      * @param color
      */
@@ -322,7 +322,7 @@ public class ToolbarLayout extends RelativeLayout {
             return  this;
         }
 
-        //設定標題旁边的小圖標
+        //設定標題旁邊的小圖標
         public Builder setIsTitleRightIconVisible(boolean isTitleRightIconVisible) {
            this. isTitleRightIconVisible=isTitleRightIconVisible;
            return  this;

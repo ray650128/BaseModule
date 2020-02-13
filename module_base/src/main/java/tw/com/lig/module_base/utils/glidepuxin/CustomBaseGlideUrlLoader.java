@@ -22,7 +22,7 @@ public class CustomBaseGlideUrlLoader extends BaseGlideUrlLoader<String> {
     private static final ModelCache<String, GlideUrl> urlCache =
             new ModelCache<>(150);
     /**
-     * Url的匹配规则
+     * Url的匹配規則
      */
     private static final Pattern PATTERN = Pattern.compile("__w-((?:-?\\d+)+)__");
 
@@ -66,7 +66,7 @@ public class CustomBaseGlideUrlLoader extends BaseGlideUrlLoader<String> {
     
 
     /**
-     * 工厂来構建CustormBaseGlideUrlLoader對象
+     * 工廠來構建CustormBaseGlideUrlLoader對象
      */
     public static class Factory implements ModelLoaderFactory<String,InputStream> {
         @Override

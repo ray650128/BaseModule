@@ -37,7 +37,7 @@ abstract class BaseActivity<P : BasePresenter<*, *>?> : RxLifeCycleActivity(),
     private var mProgressLoading: ProgressLoading? = null
     var isFirst = true
     private var smartRefreshLayout: SmartRefreshLayout? = null
-    private var isStatusBarWhite: Boolean = true
+    protected open var isStatusBarWhite: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         this.savedInstanceState = savedInstanceState
@@ -65,7 +65,7 @@ abstract class BaseActivity<P : BasePresenter<*, *>?> : RxLifeCycleActivity(),
         }
         initWidget(savedInstanceState)
         initData(savedInstanceState)
-        if (!isLanscape) { //設定竖屏
+        if (!isLanscape) { //設定豎屏
             this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         }
     }
@@ -113,7 +113,7 @@ abstract class BaseActivity<P : BasePresenter<*, *>?> : RxLifeCycleActivity(),
     }
 
     /**
-     * 是否横屏
+     * 是否橫屏
      *
      * @return
      */
@@ -196,8 +196,8 @@ abstract class BaseActivity<P : BasePresenter<*, *>?> : RxLifeCycleActivity(),
 
     /**
      *
-     *  獲取布局Builder，主要用于自定义每個頁面的progress、empty、error等View. <br></br>
-     * 需要自定义的頁面需自行覆盖實現.
+     *  獲取佈局Builder，主要用於自定義每個頁面的progress、empty、error等View. <br></br>
+     * 需要自定義的頁面需自行覆蓋實現.
      *
      * @return
      */
@@ -295,14 +295,14 @@ abstract class BaseActivity<P : BasePresenter<*, *>?> : RxLifeCycleActivity(),
     }
 
     override fun onClickRetry() {
-        showProgressView() //显示載入进度条
+        showProgressView() //顯示載入進度條
         initData(savedInstanceState)
     }
 
     override fun onClickEmpty() {}
 
     /**
-     * 是否有返回按钮 ，默认有返回按钮
+     * 是否有返回按鈕 ，預設有返回按鈕
      *
      * @return
      */
@@ -311,7 +311,7 @@ abstract class BaseActivity<P : BasePresenter<*, *>?> : RxLifeCycleActivity(),
     }
 
     /**
-     * 載入dialog 的背景颜色
+     * 載入dialog 的背景顏色
      *
      * @return
      */
@@ -320,18 +320,18 @@ abstract class BaseActivity<P : BasePresenter<*, *>?> : RxLifeCycleActivity(),
 
     /**
      * Is Toolbar enable.
-     * 是否显示標題列
+     * 是否顯示標題列
      *
      * @return
      */
     protected open val isToolbarEnable: Boolean
         get() = true
 
-    private val isToolbarTransparent: Boolean
+    protected open val isToolbarTransparent: Boolean
         get() = false
 
     /**
-     * 載入布局
+     * 載入佈局
      *
      * @return
      */
@@ -357,7 +357,7 @@ abstract class BaseActivity<P : BasePresenter<*, *>?> : RxLifeCycleActivity(),
     protected abstract fun setupPresenter()
 
     /**
-     * 显示無資料頁面
+     * 顯示無資料頁面
      */
     override fun showEmptyView() {
         if (isSmartRefreshLayoutEnabled) {
@@ -386,12 +386,12 @@ abstract class BaseActivity<P : BasePresenter<*, *>?> : RxLifeCycleActivity(),
     }
 
     private val emptyTipMsg: String
-        get() = "亲~~暫無记錄"
+        get() = "親~~暫無記錄"
     //    protected int getEmptyDrawable(){
 //        return R.drawable.no_banner
 //    }
     /**
-     * 显示載入失败的頁面
+     * 顯示載入失敗的頁面
      */
     override fun showErrorView() {
         if (null != mBaseLayout) {
@@ -411,7 +411,7 @@ abstract class BaseActivity<P : BasePresenter<*, *>?> : RxLifeCycleActivity(),
     }
 
     /**
-     * 显示載入进度条，若有網路請求，頁面初始化就載入
+     * 顯示載入進度條，若有網路請求，頁面初始化就載入
      */
     fun showProgressView() {
         if (null != mBaseLayout) {
@@ -419,13 +419,13 @@ abstract class BaseActivity<P : BasePresenter<*, *>?> : RxLifeCycleActivity(),
         }
     }
 
-    //显示自定义頁面
+    //顯示自定義頁面
     override fun showUserDefinedView(view: View) {
         mBaseLayout!!.showUserDefinedView(view)
     }
 
     /**
-     * 显示網路請求成功的頁面
+     * 顯示網路請求成功的頁面
      */
     override fun showContentView() {
         if (null != mBaseLayout) {
@@ -446,7 +446,7 @@ abstract class BaseActivity<P : BasePresenter<*, *>?> : RxLifeCycleActivity(),
         }
     }
 
-    override fun startProgressDialog() { //这是之前的dialog，用新的仿ios的替代了
+    override fun startProgressDialog() { //這是之前的dialog，用新的仿ios的替代了
 /*   if (loadingView == null) {
             loadingView = new LoadingView
                     .Builder(this)
@@ -471,7 +471,7 @@ abstract class BaseActivity<P : BasePresenter<*, *>?> : RxLifeCycleActivity(),
         showDialogLoading()
     }
 
-    override fun stopProgressDialog() { //这是之前的dialog,現在用新的替代了2019年3月13日
+    override fun stopProgressDialog() { //這是之前的dialog,現在用新的替代了2019年3月13日
 /* if (loadingView != null) {
             loadingView.getRotateLoading().stop();
             loadingView.dismissLoading();
@@ -494,7 +494,7 @@ abstract class BaseActivity<P : BasePresenter<*, *>?> : RxLifeCycleActivity(),
         }
         loadingView = null
         //        if (mPresenter != null) {
-//            mPresenter.onDestroy();//释放资源
+//            mPresenter.onDestroy();//釋放資源
 //        }
 //        this.mPresenter = null;
 //        if (isSwipeBackEnable()){
@@ -609,7 +609,7 @@ abstract class BaseActivity<P : BasePresenter<*, *>?> : RxLifeCycleActivity(),
         }
 
     /**
-     * 標題右侧的圖標是否可见
+     * 標題右側的圖標是否可見
      *
      * @return
      */

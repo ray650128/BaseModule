@@ -30,19 +30,19 @@ import java.util.List;
 public class UIUtils {
 //	public static StartActivity startActivity = null;
 //	public static WelcomActivity welcomActivity = null;
-	/*start模拟机*/
+	/*start模擬機*/
 
 	public static String exeBtn = null;
 
 	/**
-	 * 定义环形插补器默认参數
+	 * 定義環形插補器預設參數
 	 */
 	private final static int DEFAULT_SHAKE_DURATION = 500;
 	private final static float DEFAULT_SHAKE_CYCLE = 4.0f;
 
 	public static String imgSavePath = Environment.getExternalStorageDirectory().getPath() + "/easymoney/";
 //    public static MainActivity mainActivity = null;
-	/*start yucheng 2018.2.19 從AP移过来*/
+	/*start yucheng 2018.2.19 從AP移過來*/
 
 	public static Context getContext() {
 		return AppContext.getContext();
@@ -56,7 +56,7 @@ public class UIUtils {
 //		return App.getMainThreadId();
 //	}
 
-	// /////////////////載入资源文件 ///////////////////////////
+	// /////////////////載入資源檔案 ///////////////////////////
 
 	// 獲取字串
 	public static String getString(int id) {
@@ -73,7 +73,7 @@ public class UIUtils {
 		return getContext().getResources().getDrawable(id);
 	}
 
-	// 獲取颜色
+	// 獲取顏色
 	public static int getColor(int id) {
 		return getContext().getResources().getColor(id);
 	}
@@ -92,14 +92,14 @@ public class UIUtils {
 		return px / density;
 	}
 
-	// /////////////////載入布局文件//////////////////////////
+	// /////////////////載入佈局檔案//////////////////////////
 	public static View inflate(int id) {
 		return View.inflate(getContext(), id, null);
 	}
 
-	// /////////////////判断是否运行在主執行緒//////////////////////////
+	// /////////////////判斷是否運行在主執行緒//////////////////////////
 //	public static boolean isRunOnUIThread() {
-//		// 獲取当前執行緒id, 如果当前執行緒id和主執行緒id相同, 那么当前就是主執行緒
+//		// 獲取當前執行緒id, 如果當前執行緒id和主執行緒id相同, 那麼當前就是主執行緒
 //		int myTid = android.os.Process.myTid();
 //		if (myTid == getMainThreadId()) {
 //			return true;
@@ -108,18 +108,18 @@ public class UIUtils {
 //		return false;
 //	}
 //
-//	// 运行在主執行緒
+//	// 運行在主執行緒
 //	public static void runOnUIThread(Runnable r) {
 //		if (isRunOnUIThread()) {
-//			// 已经是主執行緒, 直接运行
+//			// 已經是主執行緒, 直接運行
 //			r.run();
 //		} else {
-//			// 如果是子執行緒, 借助handler让其运行在主執行緒
+//			// 如果是子執行緒, 借助handler讓其運行在主執行緒
 //			getHandler().post(r);
 //		}
 //	}
 
-	////////////////////////显示toast的utils/////////////////
+	////////////////////////顯示toast的utils/////////////////
 	public static void showToast(String showContent){
 		Toast.makeText(getContext(),showContent, Toast.LENGTH_SHORT).show();
 	}
@@ -128,7 +128,7 @@ public class UIUtils {
 
 
 
-	//start liuwangping  轉換成後台要的版本号類型
+	//start liuwangping  轉換成後台要的版本號類型
 	public static String getVersionNameZhuanhoutai(String versionName) {
 		String[] split = versionName.split("\\.");
 		StringBuffer buffer = new StringBuffer();
@@ -142,7 +142,7 @@ public class UIUtils {
 		String s = buffer.toString();
 		return buffer.toString();
 	}
-	//end liuwangping  轉換成後台要的版本号類型
+	//end liuwangping  轉換成後台要的版本號類型
 	/*start liuwangping  獲取本地VersionName*/
 	public static String getStringVersionName() {
 		PackageInfo pi = null;
@@ -162,7 +162,7 @@ public class UIUtils {
 	public static String getPackageVersionName() {
 		//1.PackageManager 包的管理者對象
 		PackageManager pm = getContext().getPackageManager();
-		//2.獲取應用的配置信息,在此处传递0獲取的是基本信息(包名,版本名称,版本号)
+		//2.獲取應用的配置信息,在此處傳遞0獲取的是基本信息(包名,版本名稱,版本號)
 		try {
 			PackageInfo packageInfo = pm.getPackageInfo(getContext().getPackageName(),0);
 			String versionName = packageInfo.versionName;
@@ -207,7 +207,7 @@ public class UIUtils {
 			int pos = i * 2; // 兩個字元對應一個byte
 			int h = hexDigits.indexOf(hexChars[pos]) << 4; // 注1
 			int l = hexDigits.indexOf(hexChars[pos + 1]); // 注2
-			if (h == -1 || l == -1) { // 非16进制字元
+			if (h == -1 || l == -1) { // 非16進制字元
 				return null;
 			}
 			bytes[i] = (byte) (h | l);
@@ -222,10 +222,10 @@ public class UIUtils {
 		try {
 
 			Intent intent = new Intent(getContext(), CheckNewMSGService.class);
-			SharePreferenceUtils.putBoolean(UIUtils.getContext(), Constants.TUICHU,true);//判断是否登錄true為已登錄，falsh為未登錄
+			SharePreferenceUtils.putBoolean(UIUtils.getContext(), Constants.TUICHU,true);//判斷是否登錄true為已登錄，falsh為未登錄
 			getContext().stopService(intent);
 			*/
-/*start yucheng 登陆信息失效先注释2018.2.19*//*
+/*start yucheng 登陸信息失效先註釋2018.2.19*//*
 
 			*/
 /*AppPreferences.eraseUser();
@@ -236,9 +236,9 @@ public class UIUtils {
 *//*
 
 			*/
-/*end yucheng 登陆信息失效先注释2018.2.19*//*
+/*end yucheng 登陸信息失效先註釋2018.2.19*//*
 
-//			UserToast.toSetToast(getContext(),"您的账号在其他地方登錄，請注意账号安全");
+//			UserToast.toSetToast(getContext(),"您的賬號在其他地方登錄，請注意賬號安全");
 //			getContext().startActivity(new Intent(getContext(), LoginActivity.class).putExtra("isKick", true).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 
 		} catch (Exception e) {
@@ -248,14 +248,14 @@ public class UIUtils {
 */
 
 	/**
-	 * 打开網路連接設定
+	 * 打開網路連接設定
 	 *
 	 * @param activity
 	 */
 	public static void openNetworkConfig(Activity activity) {
 
 		if (Build.VERSION.SDK_INT > 13) {
-			//3.2以上打开設定界面，也可以直接用ACTION_WIRELESS_SETTINGS打开到wifi界面
+			//3.2以上打開設定界面，也可以直接用ACTION_WIRELESS_SETTINGS打開到wifi界面
 			activity.startActivity(new Intent(android.provider.Settings.ACTION_SETTINGS));
 		} else {
 			activity.startActivity(new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS));
@@ -263,7 +263,7 @@ public class UIUtils {
 	}
 
 	/**
-	 * 开始环形插补動畫
+	 * 開始環形插補動畫
 	 *
 	 * @param view
 	 */
@@ -311,18 +311,18 @@ public class UIUtils {
 						second = seconds + " 秒 ";
 					}
 				}else {
-					minute = minutes + " 分钟 ";
+					minute = minutes + " 分鐘 ";
 					second = seconds + " 秒 ";
 				}
 			}else {
 				hour = hours + " 小時 ";
-				minute = minutes + " 分钟 ";
+				minute = minutes + " 分鐘 ";
 				second = seconds + " 秒 ";
 			}
 		}else {
 			day = days + " 天 ";
 			hour = hours + " 小時 ";
-			minute = minutes + " 分钟 ";
+			minute = minutes + " 分鐘 ";
 			second = seconds + " 秒 ";
 
 		}
@@ -345,7 +345,7 @@ public class UIUtils {
 //			Method mmethod = mclass.getMethod("get", new Class[] { String.class,String.class });
 //
 //			result = mmethod.invoke(invoker, new Object[] {"gsm.version.baseband", "no message" });
-//			//no Message,模拟机
+//			//no Message,模擬機
 //			if (result.equals("no message")||CheckMNJUtil.notHasBlueTooth()||CheckMNJUtil.notHasLightSensorManager(getContext())
 //					||CheckMNJUtil.isFeatures()||CheckMNJUtil.checkIsNotRealPhone()){
 //				isMONIJI=true;
@@ -367,7 +367,7 @@ public class UIUtils {
 	 */
 	public static int getStatusBarHeight(Context context) {
 		int result = 0;
-		//獲取狀態列高度的资源id
+		//獲取狀態列高度的資源id
 		int resourceId =context. getResources().getIdentifier("status_bar_height", "dimen", "android");
 		if (resourceId > 0) {
 			result = context.getResources().getDimensionPixelSize(resourceId);
@@ -385,10 +385,10 @@ public class UIUtils {
 
 		}
 
-		////////////////////判断是否安装微信/////////
+		////////////////////判斷是否安裝微信/////////
 		public static boolean isWeixinAvilible(Context context) {
 			final PackageManager packageManager = context.getPackageManager();// 獲取packagemanager
-			List<PackageInfo> pinfo = packageManager.getInstalledPackages(0);// 獲取所有已安装程序的包信息
+			List<PackageInfo> pinfo = packageManager.getInstalledPackages(0);// 獲取所有已安裝程序的包信息
 			if (pinfo != null) {
 				for (int i = 0; i < pinfo.size(); i++) {
 					String pn = pinfo.get(i).packageName;
@@ -402,7 +402,7 @@ public class UIUtils {
 		}
 
 	/**
-	 * 判断qq是否可用
+	 * 判斷qq是否可用
 	 *
 	 * @param context
 	 * @return
@@ -446,7 +446,7 @@ public class UIUtils {
 		getHandler().postDelayed(new Runnable() {
 			@Override
 			public void run() {
-				Toast.makeText(getContext(),"身份已过期，請重新登錄",Toast.LENGTH_SHORT).show();
+				Toast.makeText(getContext(),"身份已過期，請重新登錄",Toast.LENGTH_SHORT).show();
 			}
 		},1000);*/
 

@@ -17,9 +17,9 @@ import java.lang.reflect.Method;
 
 
 /**
- * 輸入鍵盤挡住輸入框的帮助類
+ * 輸入鍵盤擋住輸入框的幫助類
  * <p>
- * 华為及google 虚拟鍵盤适配帶解决*******
+ * 華為及google 虛擬鍵盤適配帶解決*******
  */
 public class KeyBoardHelper {
 
@@ -28,7 +28,7 @@ public class KeyBoardHelper {
     private View mContentView;
     private View mMoveView;
     private int blankHeight = 0;
-    private int distKeyBoardBottom;//距離軟鍵盤的距離默认10dp
+    private int distKeyBoardBottom;//距離軟鍵盤的距離預設10dp
     private View content;
 
     private int[] mMoveViewPosition;
@@ -43,7 +43,7 @@ public class KeyBoardHelper {
 
     private void initConfig() {
         screenHeight = mContext.getResources().getDisplayMetrics().heightPixels;
-        //竖屏
+        //豎屏
         if (((Activity) mContext).getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
             ((Activity) mContext).setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
@@ -51,7 +51,7 @@ public class KeyBoardHelper {
         content.getViewTreeObserver().addOnGlobalLayoutListener(onGlobalLayoutListener);
 
         distKeyBoardBottom = (int) TDevice.dp2px(10);
-        //初始化界面默认不彈出鍵盤
+        //初始化界面預設不彈出鍵盤
         ((Activity) mContext).getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE | WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
 
@@ -61,20 +61,20 @@ public class KeyBoardHelper {
     private OnGlobalLayoutListener onGlobalLayoutListener = new OnGlobalLayoutListener() {
 
         @Override
-        public void onGlobalLayout() {//当鍵盤彈出隐藏的時候會調用此方法。
+        public void onGlobalLayout() {//當鍵盤彈出隱藏的時候會調用此方法。
             Rect rect = new Rect();
-            //獲取当前界面可视部分
+            //獲取當前界面可視部分
             ((Activity) mContext).getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
-            //newBlankheight(鍵盤的高度) = screenHeight-rect.bottom(当前界面可视部分)
-            //此处就是用来獲取鍵盤的高度的， 在鍵盤没有彈出的時候 此高度為0 鍵盤彈出的時候為一個正數
+            //newBlankheight(鍵盤的高度) = screenHeight-rect.bottom(當前界面可視部分)
+            //此處就是用來獲取鍵盤的高度的， 在鍵盤沒有彈出的時候 此高度為0 鍵盤彈出的時候為一個正數
 //            int windowVisibleDisplayH = screenHeight - getBottomKeyboardHeight();
             int newBlankheight = screenHeight - rect.bottom;
             if (newBlankheight != blankHeight) {
                 if (newBlankheight > blankHeight) {
-                    // keyboard 打开
+                    // keyboard 打開
                     onKeyboardOpened(newBlankheight);
                 } else {
-                    // keyboard 關闭
+                    // keyboard 關閉
                     onKeyboardClosed();
                 }
             }
@@ -102,8 +102,8 @@ public class KeyBoardHelper {
     private void onKeyboardOpened(int keyBoardheight) {
         mMoveViewPosition = new int[2];
         mMoveView.getLocationOnScreen(mMoveViewPosition);
-        //screenHeight - position[1] -->需要移动的區域距離螢幕底部的距離
-        //(screenHeight - position[1]) - mMoveView.getHeight() - distKeyBoardBottom --->再此距離上需要移动的距離
+        //screenHeight - position[1] -->需要移動的區域距離螢幕底部的距離
+        //(screenHeight - position[1]) - mMoveView.getHeight() - distKeyBoardBottom --->再此距離上需要移動的距離
         int windowVisibleDisplayH = screenHeight - getBottomKeyboardHeight();
         int toBottomHeight = screenHeight - mMoveViewPosition[1] - mMoveView.getHeight() - distKeyBoardBottom;
         if (toBottomHeight <= keyBoardheight) {
@@ -125,7 +125,7 @@ public class KeyBoardHelper {
     }
 
     /**
-     * 移除监听
+     * 移除監聽
      */
     public void onRelease() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -185,10 +185,10 @@ public class KeyBoardHelper {
 
         public KeyBoardHelper build() {
             if (mContentView == null)
-                throw new IllegalStateException("移动的區域，必须有");
+                throw new IllegalStateException("移動的區域，必須有");
 
             if (mMoveView == null)
-                throw new IllegalStateException("用来参照軟鍵盤之間的距離的，所以是必须有");
+                throw new IllegalStateException("用來參照軟鍵盤之間的距離的，所以是必須有");
 
             return new KeyBoardHelper(this);
         }

@@ -15,7 +15,7 @@ import android.provider.MediaStore;
  */
 public class GetPathFromUri4kitkat {
     /**
-     * 专為Android4.4设計的從Uri獲取文件绝對路径，以前的方法已不好使
+     * 專為Android4.4設計的從Uri獲取檔案絕對路徑，以前的方法已不好使
      */
     @SuppressLint("NewApi")
     public static String getPath(final Context context, final Uri uri) {

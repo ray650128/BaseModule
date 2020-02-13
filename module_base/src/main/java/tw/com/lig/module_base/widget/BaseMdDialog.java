@@ -35,7 +35,7 @@ public abstract class BaseMdDialog extends Dialog {
     }
 
     /**
-     * 設定布局文件
+     * 設定佈局檔案
      * @return
      */
     public abstract int getContentView();

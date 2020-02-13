@@ -44,7 +44,7 @@ public class UpdateVersionDialog extends BaseDialog implements View.OnClickListe
 
     }
     public void setVersion(String version){
-        tv_version.setText(version+"新版本上线");
+        tv_version.setText(version+"新版本上線");
     }
     public void setDesc(CharSequence desc){
         tv_desc.setText(desc);
@@ -79,6 +79,6 @@ public class UpdateVersionDialog extends BaseDialog implements View.OnClickListe
     public void setProgress(int progress) {
 
         progressBar.setProgress(progress);
-        tv_progress.setText("下载中"+progress+"%");
+        tv_progress.setText("下載中"+progress+"%");
     }
 }

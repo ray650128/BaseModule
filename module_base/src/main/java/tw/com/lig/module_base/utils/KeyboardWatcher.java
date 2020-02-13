@@ -31,10 +31,10 @@ public class KeyboardWatcher implements ViewTreeObserver.OnGlobalLayoutListener 
         this.activityRootView     = activityRootView;
         this.isSoftKeyboardOpened = isSoftKeyboardOpened;
         activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(this);
-        //獲取status_bar_height资源的ID
+        //獲取status_bar_height資源的ID
         int resourceId = activityRootView.getContext().getResources().getIdentifier("status_bar_height", "dimen", "android");
         if (resourceId > 0) {
-            //根据资源ID獲取响應的尺寸值
+            //根據資源ID獲取響應的尺寸值
             statusBarHeight = activityRootView.getContext().getResources().getDimensionPixelSize(resourceId);
         }
     }

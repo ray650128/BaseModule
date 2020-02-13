@@ -45,8 +45,8 @@ public class InviteNewActivity extends AbsWebActivity {
             finish();
         }
 
-        /*// 定义JS需要調用的方法
-        // 被JS調用的方法必须加入@JavascriptInterface注解
+        /*// 定義JS需要調用的方法
+        // 被JS調用的方法必須加入@JavascriptInterface註解
         @JavascriptInterface
         public void takePic(String uploadUrl) {
             Message message = Message.obtain();

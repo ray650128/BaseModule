@@ -21,7 +21,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
 		db.execSQL(sql);
 
 		/*String sql_recent="create table if not exists " + RECENT_TABLE +
-				" (key text, type text)";//type為0代表是资讯，type為1代表是知道
+				" (key text, type text)";//type為0代表是資訊，type為1代表是知道
 		db.execSQL(sql_recent);*/
 	}
 

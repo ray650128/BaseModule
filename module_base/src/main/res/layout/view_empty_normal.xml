@@ -28,7 +28,7 @@
         android:layout_below="@id/iv_icon"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="亲~~暫無记錄"/>
+        android:text="親~~暫無記錄"/>
 
     <TextView
         app:layout_constraintStart_toStartOf="parent"

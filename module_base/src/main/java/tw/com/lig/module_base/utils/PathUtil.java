@@ -16,7 +16,7 @@ import java.io.IOException;
 public class PathUtil {
 
 //    public static void installApk(Context context, File file) {
-//        //兼容8.0，不用代碼申請权限了，只在Manifests加上权限 REQUEST_INSTALL_PACKAGES即可
+//        //兼容8.0，不用代碼申請權限了，只在Manifests加上權限 REQUEST_INSTALL_PACKAGES即可
 //        Intent intent = new Intent();
 //        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //        intent.setAction(Intent.ACTION_VIEW);
@@ -69,7 +69,7 @@ public class PathUtil {
 
     public static String getDownloadPDFPath(Context ctx) {
         String appCachePath = null;
-        if (checkSDCard() && ctx.getExternalCacheDir() != null) {//遇到这個路劲返回為空的情況
+        if (checkSDCard() && ctx.getExternalCacheDir() != null) {//遇到這個路勁返回為空的情況
             appCachePath =  ctx.getExternalCacheDir().getPath() + "/pdfs/" ;
         } else {
             appCachePath = ctx.getCacheDir().getPath() + "/pdfs/" ;
@@ -84,17 +84,17 @@ public class PathUtil {
 
 //    Environment 常用方法：
 //            * 方法：getDataDirectory()
-//    解释：返回 File ，獲取 Android 資料目錄。
+//    解釋：返回 File ，獲取 Android 資料目錄。
 //            * 方法：getDownloadCacheDirectory()
-//    解释：返回 File ，獲取 Android 下载/快取内容目錄。
+//    解釋：返回 File ，獲取 Android 下載/快取內容目錄。
 //            * 方法：getExternalStorageDirectory()
-//    解释：返回 File ，獲取外部儲存目錄即 SDCard
+//    解釋：返回 File ，獲取外部儲存目錄即 SDCard
 //* 方法：getExternalStoragePublicDirectory(String type)
-//    解释：返回 File ，取一個高端的公用的外部儲存器目錄来摆放某些類型的文件
+//    解釋：返回 File ，取一個高端的公用的外部儲存器目錄來擺放某些類型的檔案
 //* 方法：getExternalStorageState()
-//    解释：返回 File ，獲取外部儲存设备的当前狀態
+//    解釋：返回 File ，獲取外部儲存設備的當前狀態
 //* 方法：getRootDirectory()
-//    解释：返回 File ，獲取 Android 的根目錄
+//    解釋：返回 File ，獲取 Android 的根目錄
 
     public static String getDownloadApkCachePath() {
         String appCachePath = null;

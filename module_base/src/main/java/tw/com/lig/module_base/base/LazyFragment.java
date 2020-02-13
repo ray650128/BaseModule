@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  * Created by jpf on 2017/12/28.
- * 懒載入fragment
+ * 懶載入fragment
  */
 
 public abstract  class LazyFragment<P extends BasePresenter>  extends BaseFragment {
@@ -44,9 +44,9 @@ public abstract  class LazyFragment<P extends BasePresenter>  extends BaseFragme
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        // 對于默认 tab 和 間隔 checked tab 需要等到 isViewCreated = true 後才可以通过此通知用户可见
-        // 这种情況下第一次可见不是在這裡通知 因為 isViewCreated = false 成立,等從别的界面回到這裡後會使用 onFragmentResume 通知可见
-        // 對于非默认 tab mIsFirstVisible = true 會一直保持到选择则这個 tab 的時候，因為在 onActivityCreated 會返回 false
+        // 對于預設 tab 和 間隔 checked tab 需要等到 isViewCreated = true 後才可以通過此通知用戶可見
+        // 這種情況下第一次可見不是在這裡通知 因為 isViewCreated = false 成立,等從別的界面回到這裡後會使用 onFragmentResume 通知可見
+        // 對于非預設 tab mIsFirstVisible = true 會一直保持到選擇則這個 tab 的時候，因為在 onActivityCreated 會返回 false
         if (isViewCreated) {
             if (isVisibleToUser && !currentVisibleState) {
                 dispatchUserVisibleHint(true);
@@ -61,7 +61,7 @@ public abstract  class LazyFragment<P extends BasePresenter>  extends BaseFragme
         super.onActivityCreated(savedInstanceState);
 
         isViewCreated = true;
-        // !isHidden() 默认為 true  在調用 hide show 的時候可以使用
+        // !isHidden() 預設為 true  在調用 hide show 的時候可以使用
         if (!isHidden() && getUserVisibleHint()) {
             dispatchUserVisibleHint(true);
         }
@@ -93,7 +93,7 @@ public abstract  class LazyFragment<P extends BasePresenter>  extends BaseFragme
     @Override
     public void onPause() {
         super.onPause();
-        // 当前 Fragment 包含子 Fragment 的時候 dispatchUserVisibleHint 内部本身就會通知子 Fragment 不可见
+        // 當前 Fragment 包含子 Fragment 的時候 dispatchUserVisibleHint 內部本身就會通知子 Fragment 不可見
         // 子 fragment 走到這裡的時候自身又會調用一遍 ？
         if (currentVisibleState && getUserVisibleHint()) {
             dispatchUserVisibleHint(false);
@@ -102,18 +102,18 @@ public abstract  class LazyFragment<P extends BasePresenter>  extends BaseFragme
 
 
     /**
-     * 統一处理 显示隐藏
+     * 統一處理 顯示隱藏
      *
      * @param visible
      */
     private void dispatchUserVisibleHint(boolean visible) {
-        //当前 Fragment 是 child 時候 作為快取 Fragment 的子 fragment getUserVisibleHint = true
-        //但当父 fragment 不可见所以 currentVisibleState = false 直接 return 掉
-        // 這裡限制则可以限制多层嵌套的時候子 Fragment 的分发
+        //當前 Fragment 是 child 時候 作為快取 Fragment 的子 fragment getUserVisibleHint = true
+        //但當父 fragment 不可見所以 currentVisibleState = false 直接 return 掉
+        // 這裡限制則可以限制多層嵌套的時候子 Fragment 的分發
         if (visible && isParentInvisible()) return;
 
-        //此处是對子 Fragment 不可见的限制，因為 子 Fragment 先于父 Fragment回調本方法 currentVisibleState 置位 false
-        // 当父 dispatchChildVisibleState 的時候第二次回調本方法 visible = false 所以此处 visible 將直接返回
+        //此處是對子 Fragment 不可見的限制，因為 子 Fragment 先於父 Fragment回調本方法 currentVisibleState 置位 false
+        // 當父 dispatchChildVisibleState 的時候第二次回調本方法 visible = false 所以此處 visible 將直接返回
         if (currentVisibleState == visible) {
             return;
         }
@@ -134,9 +134,9 @@ public abstract  class LazyFragment<P extends BasePresenter>  extends BaseFragme
     }
 
     /**
-     * 用于分发可见時間的時候父獲取 fragment 是否隐藏
+     * 用於分發可見時間的時候父獲取 fragment 是否隱藏
      *
-     * @return true fragment 不可见， false 父 fragment 可见
+     * @return true fragment 不可見， false 父 fragment 可見
      */
     private boolean isParentInvisible() {
         LazyFragment fragment = (LazyFragment) getParentFragment();
@@ -149,14 +149,14 @@ public abstract  class LazyFragment<P extends BasePresenter>  extends BaseFragme
     }
 
     /**
-     * 当前 Fragment 是 child 時候 作為快取 Fragment 的子 fragment 的唯一或者嵌套 VP 的第一 fragment 時 getUserVisibleHint = true
-     * 但是由于父 Fragment 还进入可见狀態所以自身也是不可见的， 这個方法可以存在是因為庆幸的是 父 fragment 的生命周期回調总是先于子 Fragment
-     * 所以在父 fragment 設定完成当前不可见狀態後，需要通知子 Fragment 我不可见，你也不可见，
+     * 當前 Fragment 是 child 時候 作為快取 Fragment 的子 fragment 的唯一或者嵌套 VP 的第一 fragment 時 getUserVisibleHint = true
+     * 但是由於父 Fragment 還進入可見狀態所以自身也是不可見的， 這個方法可以存在是因為慶幸的是 父 fragment 的生命周期回調總是先於子 Fragment
+     * 所以在父 fragment 設定完成當前不可見狀態後，需要通知子 Fragment 我不可見，你也不可見，
      * <p>
-     * 因為 dispatchUserVisibleHint 中判断了 isParentInvisible 所以当 子 fragment 走到了 onActivityCreated 的時候直接 return 掉了
+     * 因為 dispatchUserVisibleHint 中判斷了 isParentInvisible 所以當 子 fragment 走到了 onActivityCreated 的時候直接 return 掉了
      * <p>
-     * 当真正的外部 Fragment 可见的時候，走 setVisibleHint (VP 中)或者 onActivityCreated (hide show) 的時候
-     * 從對應的生命周期入口調用 dispatchChildVisibleState 通知子 Fragment 可见狀態
+     * 當真正的外部 Fragment 可見的時候，走 setVisibleHint (VP 中)或者 onActivityCreated (hide show) 的時候
+     * 從對應的生命周期入口調用 dispatchChildVisibleState 通知子 Fragment 可見狀態
      *
      * @param visible
      */
@@ -173,17 +173,17 @@ public abstract  class LazyFragment<P extends BasePresenter>  extends BaseFragme
     }
 
     public void onFragmentFirstVisible() {
-        Log.e("LazyFragment",getClass().getSimpleName() + "  對用户第一次可见");
+        Log.e("LazyFragment",getClass().getSimpleName() + "  對用戶第一次可見");
         initData();
 
     }
 
     public void onFragmentResume() {
-        Log.e("LazyFragment",getClass().getSimpleName() + "  對用户可见");
+        Log.e("LazyFragment",getClass().getSimpleName() + "  對用戶可見");
     }
 
     public void onFragmentPause() {
-        Log.e("LazyFragment",getClass().getSimpleName() + "  對用户不可见");
+        Log.e("LazyFragment",getClass().getSimpleName() + "  對用戶不可見");
     }
 
     @Override
@@ -195,7 +195,7 @@ public abstract  class LazyFragment<P extends BasePresenter>  extends BaseFragme
 
 
     /**
-     * 返回布局 resId
+     * 返回佈局 resId
      *
      * @return layoutId
      */

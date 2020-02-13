@@ -17,35 +17,35 @@ public class DatabaseContext extends ContextWrapper {
 		// TODO Auto-generated constructor stub
 	}
 	 /**
-     * 獲得資料库路径，如果不存在，则创建對象對象
+     * 獲得資料庫路徑，如果不存在，則創建對象對象
      * @param    name
      * @param    mode
      * @param    factory
      */
     @Override
     public File getDatabasePath(String name) {
-        //判断是否存在sd卡
+        //判斷是否存在sd卡
         boolean sdExist = android.os.Environment.MEDIA_MOUNTED.equals(android.os.Environment.getExternalStorageState());
         if(!sdExist){//如果不存在,
             Log.e("SD卡管理：", "SD卡不存在，請載入SD卡");
             return null;
         } else{//如果存在
-            //獲取sd卡路径
+            //獲取sd卡路徑
             String dbDir=android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
-            dbDir += "/database";//資料库所在目錄
-            String dbPath = dbDir+"/"+name;//資料库路径
-            //判断目錄是否存在，不存在则创建該目錄
+            dbDir += "/database";//資料庫所在目錄
+            String dbPath = dbDir+"/"+name;//資料庫路徑
+            //判斷目錄是否存在，不存在則創建該目錄
             File dirFile = new File(dbDir);
             if(!dirFile.exists())
                 dirFile.mkdirs();
             
-            //資料库文件是否创建成功
+            //資料庫檔案是否創建成功
             boolean isFileCreateSuccess = false; 
-            //判断文件是否存在，不存在则创建該文件
+            //判斷檔案是否存在，不存在則創建該檔案
             File dbFile = new File(dbPath);
             if(!dbFile.exists()){
                 try {                    
-                    isFileCreateSuccess = dbFile.createNewFile();//创建文件
+                    isFileCreateSuccess = dbFile.createNewFile();//創建檔案
                 } catch (IOException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -54,7 +54,7 @@ public class DatabaseContext extends ContextWrapper {
             else     
                 isFileCreateSuccess = true;
             
-            //返回資料库文件對象
+            //返回資料庫檔案對象
             if(isFileCreateSuccess)
                 return dbFile;
             else 
@@ -63,7 +63,7 @@ public class DatabaseContext extends ContextWrapper {
     }
  
     /**
-     * 重载这個方法，是用来打开SD卡上的資料库的，android 2.3及以下會調用这個方法。
+     * 重載這個方法，是用來打開SD卡上的資料庫的，android 2.3及以下會調用這個方法。
      * 
      * @param    name
      * @param    mode
@@ -77,7 +77,7 @@ public class DatabaseContext extends ContextWrapper {
     }
     
     /**
-     * Android 4.0會調用此方法獲取資料库。
+     * Android 4.0會調用此方法獲取資料庫。
      * 
      * @see ContextWrapper#openOrCreateDatabase(String, int,
      *              CursorFactory,

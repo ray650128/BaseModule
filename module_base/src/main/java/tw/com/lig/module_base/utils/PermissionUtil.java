@@ -31,15 +31,15 @@ public class PermissionUtil {
         if (permissions == null || permissions.length == 0) return;
 
         List<String> needRequest = new ArrayList<>();
-        for (String permission : permissions) { //过滤調已经申請过的权限
+        for (String permission : permissions) { //過濾調已經申請過的權限
             if (!rxPermissions.isGranted(permission)) {
                 needRequest.add(permission);
             }
         }
 
-        if (needRequest.size() == 0) {//全部权限都已经申請过，直接执行操作
+        if (needRequest.size() == 0) {//全部權限都已經申請過，直接執行操作
             requestPermission.onRequestPermissionSuccess();
-        } else {//没有申請过,则开始申請
+        } else {//沒有申請過,則開始申請
             String[] permission=new String[needRequest.size()];
             rxPermissions
                     .request(needRequest.toArray(permission))
@@ -67,7 +67,7 @@ public class PermissionUtil {
 
 
     /**
-     * 請求摄像头权限
+     * 請求攝像頭權限
      */
     public static void launchCamera(RequestPermission requestPermission, RxPermissions rxPermissions) {
         requestPermission(requestPermission, rxPermissions, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA);
@@ -85,7 +85,7 @@ public class PermissionUtil {
 
 
     /**
-     * 請求外部儲存的权限
+     * 請求外部儲存的權限
      */
     public static void externalStorageand(RequestPermission requestPermission, RxPermissions rxPermissions) {
         requestPermission(requestPermission, rxPermissions, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
@@ -99,7 +99,7 @@ public class PermissionUtil {
 
 
     /**
-     * 請求发送短信权限
+     * 請求發送短信權限
      */
     public static void sendSms(RequestPermission requestPermission, RxPermissions rxPermissions) {
         requestPermission(requestPermission, rxPermissions, Manifest.permission.SEND_SMS);
@@ -107,14 +107,14 @@ public class PermissionUtil {
 
 
     /**
-     * 請求打電話权限
+     * 請求打電話權限
      */
     public static  void callPhone(RequestPermission requestPermission, RxPermissions rxPermissions) {
         requestPermission(requestPermission, rxPermissions, Manifest.permission.CALL_PHONE);
     }
 
     /**
-     * 請求讀取手機通讯錄权限
+     * 請求讀取手機通訊錄權限
      *
      * @param requestPermission
      * @param rxPermissions
@@ -125,14 +125,14 @@ public class PermissionUtil {
 
 
     /**
-     * 請求獲取手機狀態的权限
+     * 請求獲取手機狀態的權限
      */
     public static void readPhonestate(RequestPermission requestPermission, RxPermissions rxPermissions) {
         requestPermission(requestPermission, rxPermissions, Manifest.permission.READ_PHONE_STATE);
     }
 
     /**
-     * 請求定位权限
+     * 請求定位權限
      *
      * @param requestPermission
      * @param rxPermissions

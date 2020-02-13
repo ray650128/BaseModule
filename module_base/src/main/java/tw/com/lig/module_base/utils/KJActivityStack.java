@@ -11,7 +11,7 @@ import java.util.Stack;
 //import com.umeng.analytics.MobclickAgent;
 
 /**
- * 應用程序Activity管理類：用于Activity管理和應用程序退出
+ * 應用程序Activity管理類：用於Activity管理和應用程序退出
  */
 final public class KJActivityStack {
     private static Stack<BaseActivity> activityStack;
@@ -25,14 +25,14 @@ final public class KJActivityStack {
     }
 
     /**
-     * 獲取当前Activity栈中元素個數
+     * 獲取當前Activity棧中元素個數
      */
     public int getCount() {
         return activityStack.size();
     }
 
     /**
-     * 添加Activity到栈
+     * 添加Activity到棧
      */
     public void addActivity(BaseActivity activity) {
         if (activityStack == null) {
@@ -45,7 +45,7 @@ final public class KJActivityStack {
     }
 
     /**
-     * 獲取当前Activity（栈顶Activity）
+     * 獲取當前Activity（棧頂Activity）
      */
     public Activity topActivity() {
         if (activityStack == null) {
@@ -60,7 +60,7 @@ final public class KJActivityStack {
     }
 
     /**
-     * 獲取当前Activity（栈顶Activity） 没有找到则返回null
+     * 獲取當前Activity（棧頂Activity） 沒有找到則返回null
      */
     public Activity findActivity(Class<?> cls) {
         BaseActivity activity = null;
@@ -74,7 +74,7 @@ final public class KJActivityStack {
     }
 
     /**
-     * 结束当前Activity（栈顶Activity）
+     * 結束當前Activity（棧頂Activity）
      */
     public void finishActivity() {
         BaseActivity activity = activityStack.lastElement();
@@ -82,7 +82,7 @@ final public class KJActivityStack {
     }
 
     /**
-     * 结束指定的Activity(重载)
+     * 結束指定的Activity(重載)
      */
     public void finishActivity(Activity activity) {
         if (activity != null) {
@@ -91,13 +91,13 @@ final public class KJActivityStack {
             } else {
                 Log.e("activityStack", "activityStack == null");
             }
-            // mActivity.finish();//此处不用finish
+            // mActivity.finish();//此處不用finish
             activity = null;
         }
     }
 
     /**
-     * 结束指定的Activity(重载)
+     * 結束指定的Activity(重載)
      */
     public void finishActivity(Class<?> cls) {
         for (BaseActivity activity : activityStack) {
@@ -108,7 +108,7 @@ final public class KJActivityStack {
     }
 
     /**
-     * 關闭除了指定activity以外的全部activity 如果cls不存在于栈中，则栈全部清空
+     * 關閉除了指定activity以外的全部activity 如果cls不存在於棧中，則棧全部清空
      *
      * @param cls
      */
@@ -122,7 +122,7 @@ final public class KJActivityStack {
     }
 
     /**
-     * 结束所有Activity
+     * 結束所有Activity
      */
     public void finishAllActivity() {
         for (int i = 0, size = activityStack.size(); i < size; i++) {
@@ -140,11 +140,11 @@ final public class KJActivityStack {
         try {
             finishAllActivity();
             Runtime.getRuntime().exit(0);
-            //如果开发者調用kill或者exit之類的方法杀死进程，請务必在此之前調用onKillProcess方法，用来保存統計資料。
+            //如果開發者調用kill或者exit之類的方法殺死進程，請務必在此之前調用onKillProcess方法，用來保存統計資料。
 //            MobclickAgent.onKillProcess(AppContext.getContext());
         } catch (Exception e) {
             Runtime.getRuntime().exit(-1);
-            //如果开发者調用kill或者exit之類的方法杀死进程，請务必在此之前調用onKillProcess方法，用来保存統計資料。
+            //如果開發者調用kill或者exit之類的方法殺死進程，請務必在此之前調用onKillProcess方法，用來保存統計資料。
 //            MobclickAgent.onKillProcess(AppContext.getContext());
 
         }

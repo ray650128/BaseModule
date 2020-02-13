@@ -23,7 +23,7 @@ public class RxUtils {
     }
 
     /**
-     * 用来在網路請求前後显示隐藏进度条
+     * 用來在網路請求前後顯示隱藏進度條
      *
      * @param view
      * @param <T>
@@ -38,12 +38,12 @@ public class RxUtils {
                         .doOnSubscribe(disposable -> {
                             Log.d(TAG, "apply: doOnSubscribe");
 
-                            view.startProgressDialog();//显示进度条
+                            view.startProgressDialog();//顯示進度條
                         })
                         .observeOn(AndroidSchedulers.mainThread())
                         .doOnDispose(() -> {
                             Log.d(TAG, "apply: doOnDispose");
-                            view.stopProgressDialog();//隐藏进度条
+                            view.stopProgressDialog();//隱藏進度條
                         })
                         .compose(RxUtils.bindToLifecycle(view));
             }
@@ -60,7 +60,7 @@ public class RxUtils {
                             Log.d(TAG, "apply: doOnSubscribe");
                             if (showLoading){
 
-                                view.startProgressDialog();//显示进度条
+                                view.startProgressDialog();//顯示進度條
                             }
 
                         })
@@ -69,7 +69,7 @@ public class RxUtils {
                             Log.d(TAG, "apply: doOnDispose");
                             if (showLoading){
 
-                                view.stopProgressDialog();//隐藏进度条
+                                view.stopProgressDialog();//隱藏進度條
                             }
                         })
                         .compose(RxUtils.bindToLifecycle(view));
@@ -80,7 +80,7 @@ public class RxUtils {
     private static final String TAG = "RxUtils";
 
     /**
-     * 没有載入进度条
+     * 沒有載入進度條
      *
      * @param view
      * @param <T>

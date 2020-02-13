@@ -13,9 +13,9 @@ public class PermissionsDeniedHelper {
 
     private Context mContext;
     private TextDialog textDialog;
-    private String title = "权限申請";
+    private String title = "權限申請";
     private String message;
-    private boolean isCustomTip;//自定义提示语
+    private boolean isCustomTip;//自定義提示語
 
     public PermissionsDeniedHelper(Builder builder) {
         this.mContext = builder.mContext;
@@ -28,7 +28,7 @@ public class PermissionsDeniedHelper {
         }
         textDialog.setTitle(title);
         if(!isCustomTip){
-            textDialog.setMessage("請在設定-應用-" + mContext.getString(R.string.app_name) + "-权限中開啟"+message+"权限。");
+            textDialog.setMessage("請在設定-應用-" + mContext.getString(R.string.app_name) + "-權限中開啟"+message+"權限。");
         }else{
             textDialog.setMessage(message);
         }

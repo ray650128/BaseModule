@@ -13,7 +13,7 @@ import tw.com.lig.module_base.R;
 
 
 /**
- * 消息气泡顶部的一個三角形的View
+ * 消息氣泡頂部的一個三角形的View
  */
 public class AngleView extends View{
     private int mWidth,mHeight;

@@ -23,7 +23,7 @@ class ProgressLoading constructor(context: Context) : Dialog(context, R.style.Li
     }
 
     /**
-     * 显示對话框
+     * 顯示對話框
      */
     fun showLoading() {
         if (!this.isShowing) {
@@ -33,7 +33,7 @@ class ProgressLoading constructor(context: Context) : Dialog(context, R.style.Li
     }
 
     /**
-     * 隐藏對话框
+     * 隱藏對話框
      */
     fun hideLoading() {
         if (this.isShowing) {

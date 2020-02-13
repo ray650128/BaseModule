@@ -18,7 +18,7 @@ import tw.com.lig.module_base.R;
 
 
 /**
- * description:帶删除功能的EditText
+ * description:帶刪除功能的EditText
  */
 public class ClearEditText extends AppCompatEditText implements
         OnFocusChangeListener, TextWatcher {
@@ -27,7 +27,7 @@ public class ClearEditText extends AppCompatEditText implements
     private boolean isClearIconShow = true;
 
     /**
-     * 删除按钮的引用
+     * 刪除按鈕的引用
      */
     private Drawable mClearDrawable;
 
@@ -36,7 +36,7 @@ public class ClearEditText extends AppCompatEditText implements
     }
 
     public ClearEditText(Context context, AttributeSet attrs) {
-        //這裡構造方法也很重要，不加这個很多屬性不能再XML裡面定义
+        //這裡構造方法也很重要，不加這個很多屬性不能再XML裡面定義
         this(context, attrs, android.R.attr.editTextStyle);
     }
 
@@ -48,7 +48,7 @@ public class ClearEditText extends AppCompatEditText implements
 
     private void init() {
 
-        //獲取EditText的DrawableRight,假如没有設定我们就使用默认的圖片
+        //獲取EditText的DrawableRight,假如沒有設定我們就使用預設的圖片
         mClearDrawable = getCompoundDrawables()[2];
         if (mClearDrawable == null) {
             mClearDrawable = getResources()
@@ -62,9 +62,9 @@ public class ClearEditText extends AppCompatEditText implements
 
 
     /**
-     * 因為我们不能直接给EditText設定點击事件，所以我们用记住我们按下的位置来模拟點击事件
-     * 当我们按下的位置 在  EditText的宽度 - 圖標到控件右边的間距 - 圖標的宽度  和
-     * EditText的宽度 - 圖標到控件右边的間距之間我们就算點击了圖標，竖直方向没有考虑
+     * 因為我們不能直接給EditText設定點擊事件，所以我們用記住我們按下的位置來模擬點擊事件
+     * 當我們按下的位置 在  EditText的寬度 - 圖標到控件右邊的間距 - 圖標的寬度  和
+     * EditText的寬度 - 圖標到控件右邊的間距之間我們就算點擊了圖標，豎直方向沒有考慮
      */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -83,7 +83,7 @@ public class ClearEditText extends AppCompatEditText implements
     }
 
     /**
-     * 当ClearEditText焦點發生變化的時候，判断裡面字串长度設定清除圖標的显示與隐藏
+     * 當ClearEditText焦點發生變化的時候，判斷裡面字串長度設定清除圖標的顯示與隱藏
      */
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
@@ -99,7 +99,7 @@ public class ClearEditText extends AppCompatEditText implements
 
 
     /**
-     * 設定清除圖標的显示與隐藏，調用setCompoundDrawables為EditText繪製上去
+     * 設定清除圖標的顯示與隱藏，調用setCompoundDrawables為EditText繪製上去
      *
      * @param visible
      */
@@ -111,7 +111,7 @@ public class ClearEditText extends AppCompatEditText implements
 
 
     /**
-     * 当輸入框裡面内容發生變化的時候回調的方法
+     * 當輸入框裡面內容發生變化的時候回調的方法
      */
     @Override
     public void onTextChanged(CharSequence s, int start, int count,
@@ -136,7 +136,7 @@ public class ClearEditText extends AppCompatEditText implements
 
 
     /**
-     * 設定晃动動畫
+     * 設定晃動動畫
      */
     public void setShakeAnimation() {
         this.setAnimation(shakeAnimation(5));
@@ -144,9 +144,9 @@ public class ClearEditText extends AppCompatEditText implements
 
 
     /**
-     * 晃动動畫
+     * 晃動動畫
      *
-     * @param counts 1秒钟晃动多少下
+     * @param counts 1秒鐘晃動多少下
      * @return
      */
     public static Animation shakeAnimation(int counts) {

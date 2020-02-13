@@ -29,7 +29,7 @@ public class BottomDialog extends Dialog implements View.OnClickListener {
     private DialogClickListener mListener;
     private BouncingView bouncingView;
 
-    //recycler适配相關
+    //recycler適配相關
     int mRecyclerView;
     RecyclerView.Adapter mAdapter;
 
@@ -80,7 +80,7 @@ public class BottomDialog extends Dialog implements View.OnClickListener {
         getWindow().setWindowAnimations(R.style.bottomDialogAnim); // 添加動畫
 
         if (listItems != null) {
-            //遍历控件id,添加點击事件
+            //遍歷控件id,添加點擊事件
             for (int id : listItems) {
                 findViewById(id).setOnClickListener(this);
             }
@@ -102,7 +102,7 @@ public class BottomDialog extends Dialog implements View.OnClickListener {
     }
 
     /**
-     * 暴露给外边的dialog
+     * 暴露給外邊的dialog
      *
      * @param listener
      */
@@ -130,7 +130,7 @@ public class BottomDialog extends Dialog implements View.OnClickListener {
     }
 
     /**
-     * 根据手機的解析度從 dp 的單位 轉成為 px(像素)
+     * 根據手機的解析度從 dp 的單位 轉成為 px(像素)
      */
     private int dip2px(Context context, float dpValue) {
         final float scale = context.getResources().getDisplayMetrics().density;

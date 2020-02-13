@@ -13,13 +13,13 @@ public class StatusCodeUtil {
     public static String convertStatusCode(HttpException httpException) {
         String msg=null;
         if (httpException.code() == 500) {
-            msg = "操作频繁";
+            msg = "操作頻繁";
         } else if (httpException.code() == 504) {
             msg = "連接異常，請檢查網路";
         } else if (httpException.code() == 404) {
             msg = "請求地址不存在";
         } else if (httpException.code() == 403) {
-            msg = "請求被伺服器拒绝";
+            msg = "請求被伺服器拒絕";
         } else if (httpException.code() == 307) {
             msg = "請求被重定向到其他頁面";
         } else if(httpException.code()==400){

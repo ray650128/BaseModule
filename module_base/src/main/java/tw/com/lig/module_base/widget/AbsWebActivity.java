@@ -49,7 +49,7 @@ public abstract class AbsWebActivity extends BaseActivity {
     private boolean isLoadError;
     private boolean convertUrl=true;
 //    private AddJavascriptInterfaceListener addJavascriptInterfaceListener;
-    private boolean isTitleChangable=true; //標題是否可以改变
+    private boolean isTitleChangable=true; //標題是否可以改變
 
     @Override
     protected int getContentView() {
@@ -105,7 +105,7 @@ public abstract class AbsWebActivity extends BaseActivity {
     }
 
     /**
-     * 載入失败回調
+     * 載入失敗回調
      *
      * @param view
      * @param request
@@ -117,7 +117,7 @@ public abstract class AbsWebActivity extends BaseActivity {
 
 
     /**
-     * 当前WebView显示頁面的標題
+     * 當前WebView顯示頁面的標題
      *
      * @param view  WebView
      * @param title web頁面標題
@@ -125,11 +125,11 @@ public abstract class AbsWebActivity extends BaseActivity {
     protected void onWebTitle(WebView view, String title) {
         if (!TextUtils.isEmpty(title)) {
             if (title.toLowerCase().contains("error")
-                    || title.toLowerCase().contains("找不到网頁")) {
+                    || title.toLowerCase().contains("找不到網頁")) {
                 isLoadError = true;
                 if (isToolbarEnabled){
 
-                    mToolbarLayout.setTitle("載入出错啦");
+                    mToolbarLayout.setTitle("載入出錯啦");
                 }
             } else {
                 if (isToolbarEnabled&&isTitleChangable){
@@ -141,10 +141,10 @@ public abstract class AbsWebActivity extends BaseActivity {
     }
 
     /**
-     * 链接载入成功後會被調用
+     * 連結載入成功後會被調用
      *
      * @param view WebView
-     * @param url  链接地址
+     * @param url  連結地址
      */
     protected void onUrlFinished(WebView view, String url) {
         if (isLoadError) {
@@ -155,13 +155,13 @@ public abstract class AbsWebActivity extends BaseActivity {
     }
 
     /**
-     * 载入链接之前會被調用
+     * 載入連結之前會被調用
      *
      * @param view WebView
-     * @param url  链接地址
+     * @param url  連結地址
      */
     protected void onUrlLoading(WebView view, String url) {
-    /*    if (!TextUtils.isEmpty(url) && url.toLowerCase().contains("/user/login")) {//token 过期 跳轉登錄
+    /*    if (!TextUtils.isEmpty(url) && url.toLowerCase().contains("/user/login")) {//token 過期 跳轉登錄
 //            startActivity(new Intent(this, LoginActivity.class));
         }*/
     }
@@ -176,16 +176,16 @@ public abstract class AbsWebActivity extends BaseActivity {
         WebSettings settings = mWebView.getSettings();
         settings.setDefaultFontSize(15);
         settings.setJavaScriptEnabled(true);//
-        settings.setSupportZoom(false);// 是否支持缩放，配合方法setBuiltInZoomControls使用，默认true
-        settings.setBuiltInZoomControls(false);//是否使用WebView内置的缩放组件,默认false
-        settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);//自适應螢幕
+        settings.setSupportZoom(false);// 是否支持縮放，配合方法setBuiltInZoomControls使用，預設true
+        settings.setBuiltInZoomControls(false);//是否使用WebView內置的縮放組件,預設false
+        settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);//自適應螢幕
         if (TDevice.hasInternet()) {
-            settings.setCacheMode(WebSettings.LOAD_DEFAULT);//根据cache-control决定是否從網路上取資料。
+            settings.setCacheMode(WebSettings.LOAD_DEFAULT);//根據cache-control決定是否從網路上取資料。
         } else {
-            settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);//没网，则從本地獲取，即離线載入
+            settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);//沒網，則從本地獲取，即離線載入
         }
-        settings.setAllowFileAccess(true);// 可以访問文件
-        settings.setLoadWithOverviewMode(true);//当頁面宽度超过WebView显示宽度時，缩小頁面适應WebView。默认false
+        settings.setAllowFileAccess(true);// 可以訪問檔案
+        settings.setLoadWithOverviewMode(true);//當頁面寬度超過WebView顯示寬度時，縮小頁面適應WebView。預設false
         settings.setDomStorageEnabled(true); // 開啟 DOM storage API 功能
         settings.setDatabaseEnabled(true);   //開啟 database storage API 功能
         settings.setAppCacheEnabled(true);//開啟 Application Caches 功能
@@ -199,7 +199,7 @@ public abstract class AbsWebActivity extends BaseActivity {
             zbc.getZoomControls().setVisibility(View.GONE);
         }
 
-        //5.0+設定混合模式。允许https 访問http
+        //5.0+設定混合模式。允許https 訪問http
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         }
@@ -216,7 +216,7 @@ public abstract class AbsWebActivity extends BaseActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
-            if (mWebView != null && mWebView.canGoBack()) {  //表示按返回键
+            if (mWebView != null && mWebView.canGoBack()) {  //表示按返回鍵
                 mWebView.goBack();   //後退
                 return true;
             } else {
@@ -243,7 +243,7 @@ public abstract class AbsWebActivity extends BaseActivity {
     }
 
     /**
-     * 封装了url/ 標題
+     * 封裝了url/ 標題
      *
      * @return
      */
@@ -264,7 +264,7 @@ public abstract class AbsWebActivity extends BaseActivity {
     private class MyWebViewClient extends WebViewClient {
         @Override
         public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-            handler.proceed();//接受证书
+            handler.proceed();//接受證書
         }
 
         @Override
@@ -286,13 +286,13 @@ public abstract class AbsWebActivity extends BaseActivity {
             try {
                 if(url.startsWith("weixin://") || url.startsWith("alipays://") ||
                         url.startsWith("mailto://") || url.startsWith("tel://")
-                    //其他自定义的scheme
+                    //其他自定義的scheme
                 ) {
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                     startActivity(intent);
                     return true;
                 }
-            } catch (Exception e) { //防止crash (如果手機上没有安装处理某個scheme开头的url的APP, 會导致crash)
+            } catch (Exception e) { //防止crash (如果手機上沒有安裝處理某個scheme開頭的url的APP, 會導致crash)
                 return false;
             }
 
@@ -300,7 +300,7 @@ public abstract class AbsWebActivity extends BaseActivity {
 
             onUrlLoading(view, url);
 
-            if (url.startsWith("tel:")) {//拨打電話
+            if (url.startsWith("tel:")) {//撥打電話
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(url));
                 startActivity(intent);
                 view.reload();
@@ -315,7 +315,7 @@ public abstract class AbsWebActivity extends BaseActivity {
         @Override
         public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
             super.onReceivedError(view, request, error);
-//            onUrlError(view, request, error);//這裡先注释掉这行代碼，发現有時候會影响載入
+//            onUrlError(view, request, error);//這裡先註釋掉這行代碼，發現有時候會影響載入
 
         }
     }
@@ -352,7 +352,7 @@ public abstract class AbsWebActivity extends BaseActivity {
         a.startActivity(intent);
     }
 
-//    WebParamBuilder builder = WebParamBuilder.create().setTitle("借款协议").setUrl(URLConstant.URL_REGISTER);
+//    WebParamBuilder builder = WebParamBuilder.create().setTitle("借款協議").setUrl(URLConstant.URL_REGISTER);
 
     @Override
     protected void initData(Bundle savedInstanceState) {

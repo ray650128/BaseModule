@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
 /**
- * 正方形布局
+ * 正方形佈局
  * @author howie
  *
  */
@@ -31,7 +31,7 @@ public class SquareLayout extends RelativeLayout {
         // Children are just made to fill our space.  
         int childWidthSize = getMeasuredWidth();  
         int childHeightSize = getMeasuredHeight();  
-        //高度和宽度一样  
+        //高度和寬度一樣  
         heightMeasureSpec = widthMeasureSpec = MeasureSpec.makeMeasureSpec(childWidthSize, MeasureSpec.EXACTLY);  
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);  
     }  

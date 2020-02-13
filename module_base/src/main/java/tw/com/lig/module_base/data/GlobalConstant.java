@@ -13,7 +13,7 @@ public interface GlobalConstant {
     int CONNECT_TIME_OUT=10;
     int READ_TIME_OUT=10;
     String OS="android";
-    String USER_PROTOCOL="http://h5.xhl.jihustore.com/doc/index.html"; //用户协议
+    String USER_PROTOCOL="http://h5.xhl.jihustore.com/doc/index.html"; //用戶協議
 //    http://h5.xhl.jihustore.com/schoolStore/doc/index.html
 
 }

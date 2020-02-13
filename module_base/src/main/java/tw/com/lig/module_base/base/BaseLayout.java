@@ -61,7 +61,7 @@ public class BaseLayout extends RelativeLayout {
         }
         addView(mContentView, mParams);
 
-        //4.添加进度条
+        //4.添加進度條
         if (mProgressBarView == null) {
             mProgressBarView = inflate(mContext, R.layout.view_progressbar, null);
         }
@@ -141,7 +141,7 @@ public class BaseLayout extends RelativeLayout {
             addView(mEmptyView, mParams);
             addEmpty = true;
         }
-        //规定空白頁面的點击id為tv_empty
+        //規定空白頁面的點擊id為tv_empty
         if (mEmptyView != null && mEmptyView.findViewById(R.id.tv_empty) != null) {
             mEmptyView.findViewById(R.id.tv_empty).setOnClickListener(v -> {
                 if (mOnBaseLayoutClickListener != null) {
@@ -196,7 +196,7 @@ public class BaseLayout extends RelativeLayout {
         }
     }
 
-    //自定义view（）
+    //自定義view（）
     public void showUserDefinedView(View view) {
         mContentView.setVisibility(View.GONE);
         mProgressBarView.setVisibility(View.GONE);
@@ -208,7 +208,7 @@ public class BaseLayout extends RelativeLayout {
         }
 
         if (view != null) {
-            //没有mUserDinfedView 才创建
+            //沒有mUserDinfedView 才創建
             if (mUserDinfedView == null) {
                 mUserDinfedView = view;
             }
@@ -222,8 +222,8 @@ public class BaseLayout extends RelativeLayout {
 
             }
         } else {
-            //传入view==null表示隐藏自定义view頁面 销毁自定义頁面
-            //先判断是否有mUserDinfedView
+            //傳入view==null表示隱藏自定義view頁面 銷毀自定義頁面
+            //先判斷是否有mUserDinfedView
             if (mUserDinfedView != null) {
                 mUserDinfedView.setVisibility(GONE);
                 removeView(mUserDinfedView);
@@ -302,19 +302,19 @@ public class BaseLayout extends RelativeLayout {
 
     public interface OnBaseLayoutClickListener {
         /**
-         * 错误頁面點击重试
+         * 錯誤頁面點擊重試
          */
         void onClickRetry();
 
         /**
-         * 空頁面點击
+         * 空頁面點擊
          */
         void onClickEmpty();
     }
 
 
     /**
-     * 點击重试
+     * 點擊重試
      */
     private void retry() {
         mProgressBarView.setBackgroundResource(R.color.color_eee);

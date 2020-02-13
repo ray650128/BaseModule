@@ -89,7 +89,7 @@ public class HischoolRefreshHeader extends RelativeLayout implements RefreshHead
         if (success){
             tvRefresh.setText("刷新完成");
         } else {
-            tvRefresh.setText("刷新失败");
+            tvRefresh.setText("刷新失敗");
         }
         return 200;
     }

@@ -5,7 +5,7 @@
     <color name="colorAccent">#6C85FC</color>
     <color name="statusBarColor">@android:color/transparent</color>
     <color name="greyba">#bababa</color>
-    <!--色值定义格式abcdef 為color_ace 取色值的第一個字母-->
+    <!--色值定義格式abcdef 為color_ace 取色值的第一個字母-->
     <color name="white">@color/color_fff</color>
     <color name="color_fff">#fff</color>
     <color name="color_f0f0f0">#f0f0f0</color>

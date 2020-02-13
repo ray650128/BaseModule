@@ -20,22 +20,22 @@ import java.lang.reflect.Method;
 import java.util.Map;
 
 /**
- * Created by ${刘佳阔} on 2016/8/23.
- * SharedPreferences 的封装類
+ * Created by ${劉佳闊} on 2016/8/23.
+ * SharedPreferences 的封裝類
  */
 public class SPutils {
     /**
-     * 保存在手機裡面的文件名
+     * 保存在手機裡面的檔案名
      */
     public static final String FILE_NAME = "share_data";
     private static final String TAG = "SPutils";
 
     /**
-     * 保存資料的方法，通过传入的值保存不同類型資料
+     * 保存資料的方法，通過傳入的值保存不同類型資料
      * 支持 int string  boolean float long Serializable子類
      *
      * @param context
-     * @param key     名称
+     * @param key     名稱
      * @param object  支持 int string  boolean float long Serializable子類
      */
     public static void put(Context context, String key, Object object) {
@@ -90,14 +90,14 @@ public class SPutils {
 
 
     /**
-     * 得到保存資料的方法，我们根据{默认值}得到保存的資料的具体類型，然後調用相對于的方法獲取值
+     * 得到保存資料的方法，我們根據{預設值}得到保存的資料的具體類型，然後調用相對于的方法獲取值
      * 支持 int string  boolean float long Serializable子類
-     * 注意 默认值的類型直接影响到返回值的類型
+     * 注意 預設值的類型直接影響到返回值的類型
      *
      * @param context
-     * @param key           键的名称
-     * @param defaultObject 默认值
-     * @return 结果
+     * @param key           鍵的名稱
+     * @param defaultObject 預設值
+     * @return 結果
      */
     public static Object get(Context context, String key, Object defaultObject) {
         SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
@@ -119,7 +119,7 @@ public class SPutils {
     }
 
     /**
-     * 存贮object類型的資料
+     * 存貯object類型的資料
      *
      * @param context
      * @param key
@@ -129,14 +129,14 @@ public class SPutils {
         SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-        // 创建位元組輸出流
+        // 創建位元組輸出流
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try {
-            // 创建對象輸出流，并封装位元組流
+            // 創建對象輸出流，並封裝位元組流
             ObjectOutputStream oos = new ObjectOutputStream(baos);
             // 將對象寫入位元組流
             oos.writeObject(vlaue);
-            // 將位元組流编碼成base64的字元窜 -没什么必要
+            // 將位元組流編碼成base64的字元竄 -沒什麼必要
             String object = new String(Base64.encode(baos
                     .toByteArray(), Base64.DEFAULT));
             //      String object = new String(baos.toByteArray());
@@ -165,10 +165,10 @@ public class SPutils {
         if (!res.equals("")) {
             byte[] bytes = Base64.decode(res.getBytes(), Base64.DEFAULT);
             //  byte[] bytes = res.getBytes();
-            //封装到位元組流
+            //封裝到位元組流
             bais = new ByteArrayInputStream(bytes);
             try {
-                //再次封装
+                //再次封裝
                 bis = new ObjectInputStream(bais);
                 try {
                     //讀取對象
@@ -203,7 +203,7 @@ public class SPutils {
     }
 
     /**
-     * 移除某個key值已经對應的值
+     * 移除某個key值已經對應的值
      *
      * @param context
      * @param key
@@ -231,7 +231,7 @@ public class SPutils {
     }
 
     /**
-     * 查询某個key是否已经存在
+     * 查詢某個key是否已經存在
      *
      * @param context
      * @param key
@@ -244,7 +244,7 @@ public class SPutils {
     }
 
     /**
-     * 返回所有的键值對
+     * 返回所有的鍵值對
      *
      * @param context
      * @return
@@ -256,7 +256,7 @@ public class SPutils {
     }
 
     /**
-     * 创建一個解决SharedPreferencesCompat.apply方法的一個兼容類
+     * 創建一個解決SharedPreferencesCompat.apply方法的一個兼容類
      *
      * @author zhy
      */
@@ -281,7 +281,7 @@ public class SPutils {
         }
 
         /**
-         * 如果找到则使用apply执行，否则使用commit
+         * 如果找到則使用apply執行，否則使用commit
          *
          * @param editor
          */
@@ -303,7 +303,7 @@ public class SPutils {
     }
 
     /**
-     * 已经登陆了
+     * 已經登陸了
      * @return
      */
     public static boolean hasLogin(){
@@ -348,14 +348,14 @@ public class SPutils {
         SharedPreferences sp = AppContext.getContext().getSharedPreferences(FILE_NAME,
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-        // 创建位元組輸出流
+        // 創建位元組輸出流
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try {
-            // 创建對象輸出流，并封装位元組流
+            // 創建對象輸出流，並封裝位元組流
             ObjectOutputStream oos = new ObjectOutputStream(baos);
             // 將對象寫入位元組流
             oos.writeObject(vlaue);
-            // 將位元組流编碼成base64的字元窜 -没什么必要
+            // 將位元組流編碼成base64的字元竄 -沒什麼必要
             String object = new String(Base64.encode(baos
                     .toByteArray(), Base64.DEFAULT));
             //      String object = new String(baos.toByteArray());

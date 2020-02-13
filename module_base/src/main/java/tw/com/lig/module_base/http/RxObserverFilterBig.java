@@ -42,7 +42,7 @@ public abstract class RxObserverFilterBig<T> implements Observer<T> {
                         onSuccees(t);
                     } else {
                         boolean b = onCodeError(t);
-                        if (!b) {//若自己不处理就默认处理
+                        if (!b) {//若自己不處理就預設處理
                             handleError(new Throwable(((BaseEntityBig) t).getMessage()));
                         }
                     }
@@ -81,11 +81,11 @@ public abstract class RxObserverFilterBig<T> implements Observer<T> {
             HttpException httpException = (HttpException) t;
             msg = convertStatusCode(httpException);
         } else if (t instanceof ParseException || t instanceof JSONException || t instanceof JsonIOException) {
-            msg = "資料解析错误";
+            msg = "資料解析錯誤";
         } else if (t instanceof NullPointerException) {
-            msg = "未知異常,請聯繫客服人员";
-        } else if (t instanceof EOFException) { //伺服器接口没返回資料
-            msg = "伺服器發生错误";
+            msg = "未知異常,請聯繫客服人員";
+        } else if (t instanceof EOFException) { //伺服器介面沒返回資料
+            msg = "伺服器發生錯誤";
         } else {
             msg = t.getMessage();
         }
@@ -93,10 +93,10 @@ public abstract class RxObserverFilterBig<T> implements Observer<T> {
 //        if (BuildConfig.DEBUG_MODEL) {//debug
         if (BuildConfig.DEBUG) {//debug
             if (msg.contains("End of input at line 1 column 1 path $")) {
-                msg = "服務端請求没有返回结果";
+                msg = "服務端請求沒有返回結果";
             }
         } else {//release
-            //友盟错误分析
+            //友盟錯誤分析
         }
         Toast.makeText(AppContext.getContext(), msg, Toast.LENGTH_SHORT).show();
 
@@ -111,13 +111,13 @@ public abstract class RxObserverFilterBig<T> implements Observer<T> {
     private String convertStatusCode(HttpException httpException) {
         String msg;
         if (httpException.code() == 500) {
-            msg = "伺服器错误";
+            msg = "伺服器錯誤";
         } else if (httpException.code() == 504) {
             msg = "連接異常，請檢查網路";
         } else if (httpException.code() == 404) {
             msg = "請求地址不存在";
         } else if (httpException.code() == 403) {
-            msg = "請求被伺服器拒绝";
+            msg = "請求被伺服器拒絕";
         } else if (httpException.code() == 307) {
             msg = "請求被重定向到其他頁面";
         } else {
@@ -134,7 +134,7 @@ public abstract class RxObserverFilterBig<T> implements Observer<T> {
     protected abstract void onSuccees(T responseData) throws Exception;
 
     /**
-     * 返回失败
+     * 返回失敗
      *
      * @param e
      * @throws Exception
@@ -142,10 +142,10 @@ public abstract class RxObserverFilterBig<T> implements Observer<T> {
     protected abstract void onFailure(Throwable e) throws Exception;
 
     /**
-     * 返回失败
+     * 返回失敗
      *
      * @param responseData
-     * @param //           true:自己主动处理；false ：默认处理
+     * @param //           true:自己主動處理；false ：預設處理
      *
      * @throws Exception
      */

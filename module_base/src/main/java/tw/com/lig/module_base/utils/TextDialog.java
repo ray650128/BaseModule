@@ -12,24 +12,24 @@ import tw.com.lig.module_base.R;
 
 /**
  * Created by ljk on 2016/12/15.
- * 自定义的消息彈出框
+ * 自定義的消息彈出框
  */
 
 public class TextDialog extends Dialog {
 
-    private TextView yes;//确定按钮
-    private TextView no;//取消按钮
+    private TextView yes;//確定按鈕
+    private TextView no;//取消按鈕
     private TextView titleTv;//消息標題文本
     private TextView messageTv;//消息提示文本
     private String titleStr;//從外界設定的title文本
     private String messageStr;//從外界設定的消息文本
-    //确定文本和取消文本的显示内容
+    //確定文本和取消文本的顯示內容
     private String yesStr, noStr;
 
     private boolean mB;
 
-    private onNoOnclickListener noOnclickListener;//取消按钮被點击了的监听器
-    private onYesOnclickListener yesOnclickListener;//确定按钮被點击了的监听器
+    private onNoOnclickListener noOnclickListener;//取消按鈕被點擊了的監聽器
+    private onYesOnclickListener yesOnclickListener;//確定按鈕被點擊了的監聽器
     private View mIdDiv;
 
     public TextDialog(Builder builder) {
@@ -43,7 +43,7 @@ public class TextDialog extends Dialog {
     }
 
     /**
-     * 設定取消按钮的显示内容和监听
+     * 設定取消按鈕的顯示內容和監聽
      *
      * @param str
      * @param onNoOnclickListener
@@ -56,7 +56,7 @@ public class TextDialog extends Dialog {
     }
 
     /**
-     * 設定确定按钮的显示内容和监听
+     * 設定確定按鈕的顯示內容和監聽
      *
      * @param str
      * @param onYesOnclickListener
@@ -85,7 +85,7 @@ public class TextDialog extends Dialog {
 
 
         setContentView(R.layout.dialog_text);
-        //按空白处不能取消動畫
+        //按空白處不能取消動畫
         setCanceledOnTouchOutside(false);
         //初始化界面控件
         initView();
@@ -96,10 +96,10 @@ public class TextDialog extends Dialog {
     }
 
     /**
-     * 初始化界面的确定和取消监听器
+     * 初始化界面的確定和取消監聽器
      */
     private void initEvent() {
-        //設定确定按钮被點击後，向外界提供监听
+        //設定確定按鈕被點擊後，向外界提供監聽
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,7 +108,7 @@ public class TextDialog extends Dialog {
                 }
             }
         });
-        //設定取消按钮被點击後，向外界提供监听
+        //設定取消按鈕被點擊後，向外界提供監聽
         no.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,10 +123,10 @@ public class TextDialog extends Dialog {
 
 
     /**
-     * 初始化界面控件的显示資料
+     * 初始化界面控件的顯示資料
      */
     private void initData() {
-        //如果用户自定了title和message
+        //如果用戶自定了title和message
         if (titleStr != null) {
             titleTv.setVisibility(View.VISIBLE);
             titleTv.setText(titleStr);
@@ -135,7 +135,7 @@ public class TextDialog extends Dialog {
             messageTv.setText(messageStr);
 
         }
-        //如果設定按钮的文字
+        //如果設定按鈕的文字
         if (yesStr != null) {
             yes.setText(yesStr);
         }
@@ -178,7 +178,7 @@ public class TextDialog extends Dialog {
     }
 
     /**
-     * 隐藏取消按钮 放在show後边
+     * 隱藏取消按鈕 放在show後邊
      */
     public void hideNo() {
         no.setVisibility(View.GONE);
@@ -186,7 +186,7 @@ public class TextDialog extends Dialog {
     }
 
     /**
-     * 隐藏确认按键
+     * 隱藏確認按鍵
      */
     public void hideYes() {
         yes.setVisibility(View.GONE);
@@ -194,7 +194,7 @@ public class TextDialog extends Dialog {
     }
 
     /**
-     * 設定确定按钮和取消被點击的接口
+     * 設定確定按鈕和取消被點擊的介面
      */
     public interface onYesOnclickListener {
         void onYesClick();
@@ -209,13 +209,13 @@ public class TextDialog extends Dialog {
 
         private String titleStr;//從外界設定的title文本
         private String messageStr;//從外界設定的消息文本
-        //确定文本和取消文本的显示内容
+        //確定文本和取消文本的顯示內容
         private String yesStr, noStr;
 
         private boolean mB;
 
-        private onNoOnclickListener noOnclickListener;//取消按钮被點击了的监听器
-        private onYesOnclickListener yesOnclickListener;//确定按钮被點击了的监听器
+        private onNoOnclickListener noOnclickListener;//取消按鈕被點擊了的監聽器
+        private onYesOnclickListener yesOnclickListener;//確定按鈕被點擊了的監聽器
         private Context mContext;
 
 

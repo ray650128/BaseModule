@@ -35,10 +35,10 @@ public class GlideLoadUtils {
 
 
     /**
-     * 借助内部類 實現執行緒安全的单例模式
-     * 属于懒汉式单例，因為Java机制规定，内部類SingletonHolder只有在getInstance()
-     * 方法第一次調用的時候才會被載入（實現了lazy），而且其載入过程是執行緒安全的。
-     * 内部類載入的時候實例化一次instance。
+     * 借助內部類 實現執行緒安全的單例模式
+     * 屬於懶漢式單例，因為Java機制規定，內部類SingletonHolder只有在getInstance()
+     * 方法第一次調用的時候才會被載入（實現了lazy），而且其載入過程是執行緒安全的。
+     * 內部類載入的時候實例化一次instance。
      */
     public GlideLoadUtils() {
     }
@@ -142,7 +142,7 @@ public class GlideLoadUtils {
             }
 
             GlideApp.with(context)
-                    .load(url)      //設定圖片路径(fix #8,文件名包含%符号 無法识别和显示)
+                    .load(url)      //設定圖片路徑(fix #8,檔案名包含%符號 無法識別和顯示)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)//快取全尺寸
 //                    .placeholder(defaultPic)
                     .transform(transform)
@@ -164,7 +164,7 @@ public class GlideLoadUtils {
             }
 
             GlideApp.with(context)
-                    .load(url)      //設定圖片路径(fix #8,文件名包含%符号 無法识别和显示)
+                    .load(url)      //設定圖片路徑(fix #8,檔案名包含%符號 無法識別和顯示)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)//快取全尺寸
 //                    .placeholder(defaultPic)
                     .transform(transform)
@@ -185,7 +185,7 @@ public class GlideLoadUtils {
             }
 
             GlideApp.with(context)
-                    .load(url)      //設定圖片路径(fix #8,文件名包含%符号 無法识别和显示)
+                    .load(url)      //設定圖片路徑(fix #8,檔案名包含%符號 無法識別和顯示)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)//快取全尺寸
 //                    .placeholder(defaultPic)
                     .transform(transform)
@@ -205,7 +205,7 @@ public class GlideLoadUtils {
             }
 
             GlideApp.with(context)
-                    .load(url)      //設定圖片路径(fix #8,文件名包含%符号 無法识别和显示)
+                    .load(url)      //設定圖片路徑(fix #8,檔案名包含%符號 無法識別和顯示)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)//快取全尺寸
 //                    .placeholder(defaultPic)
                     .transform(transform)

@@ -72,15 +72,15 @@ public class AndroidBug5497Workaround {
                 }
             }
             //如果兩次高度不一致
-            //將計算的可视高度設定成视圖的高度
+            //將計算的可視高度設定成視圖的高度
             frameLayoutParams.height = usableHeightNow;
-            mChildOfContent.requestLayout();//請求重新布局
+            mChildOfContent.requestLayout();//請求重新佈局
             usableHeightPrevious = usableHeightNow;
         }
     }
 
     private int computeUsableHeight() {
-        //計算视圖可视高度
+        //計算視圖可視高度
         Rect r = new Rect();
         mChildOfContent.getWindowVisibleDisplayFrame(r);
         return (r.bottom);

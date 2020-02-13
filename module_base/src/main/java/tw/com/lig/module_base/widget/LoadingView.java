@@ -69,9 +69,9 @@ public class LoadingView {
             loadText.setText(mLoadMsg);
         }
 
-        setKeyBackCancelable(isKeyBackCancelable);//监听返回键，取消loading;ture 取消：false 不取消
-        setOutSideCancelable(isOutSideCancelable);//點击螢幕取消loading ;ture 取消：false 不取消
-        setOutSideEnable(isOutSideEnable);//loading 載入中是否拦截螢幕控件點击事件； true 拦截 ：false 不拦截
+        setKeyBackCancelable(isKeyBackCancelable);//監聽返回鍵，取消loading;ture 取消：false 不取消
+        setOutSideCancelable(isOutSideCancelable);//點擊螢幕取消loading ;ture 取消：false 不取消
+        setOutSideEnable(isOutSideEnable);//loading 載入中是否攔截螢幕控件點擊事件； true 攔截 ：false 不攔截
     }
 
     private void initAnim() {
@@ -81,14 +81,14 @@ public class LoadingView {
 
 
     /**
-     * 添加View到根视圖
+     * 添加View到根視圖
      */
     public void showLoading() {
         if (isShowing()) {
             return;
         }
         onAttached();
-        //让View獲取到焦點,測试过程中发現會先执行View的onKeyDown事件，然後再执行Activity的
+        //讓View獲取到焦點,測試過程中發現會先執行View的onKeyDown事件，然後再執行Activity的
         loadingView.requestFocus();
 
     }
@@ -143,7 +143,7 @@ public class LoadingView {
 
     public void dismissImmediately() {
         decorView.post(() -> {
-            //從根视圖移除
+            //從根視圖移除
             loadingView.clearFocus();
             loadingView.setFocusable(false);
             setKeyBackCancelable(false);
@@ -159,9 +159,9 @@ public class LoadingView {
 
 
     /**
-     * 檢測該View是不是已经添加到根视圖
+     * 檢測該View是不是已經添加到根視圖
      *
-     * @return 如果视圖已经存在該View返回true
+     * @return 如果視圖已經存在該View返回true
      */
     public boolean isShowing() {
         return loadingView.getParent() != null || isShowing;
@@ -202,7 +202,7 @@ public class LoadingView {
     private final View.OnTouchListener onEnableTouchListener = (v, event) -> true;
 
     /**
-     * 點击載入框外面是否dimissLoading ;ture 取消：fasle 不取消
+     * 點擊載入框外面是否dimissLoading ;ture 取消：fasle 不取消
      *
      * @param isCancelable
      */
@@ -220,7 +220,7 @@ public class LoadingView {
     }
 
     /**
-     * loading 載入中是否其拦截当前頁面的點击事件;true 拦截：false 不拦截
+     * loading 載入中是否其攔截當前頁面的點擊事件;true 攔截：false 不攔截
      *
      * @param isEnable
      */

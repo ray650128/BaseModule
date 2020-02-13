@@ -46,7 +46,7 @@ public class AppContext extends Application {
 
 //        FontUtils.getInstance().replaceSystemDefaultFontFromAsset(this, "PingFang-SC-Regular.otf");
 
-        //設定字体
+        //設定字型
                /* ViewPump.init(ViewPump.builder()
                 .addInterceptor(new CalligraphyInterceptor(
                         new CalligraphyConfig.Builder()
@@ -55,11 +55,11 @@ public class AppContext extends Application {
                                 .build()))
                 .build());*/
 
-//        //必须調用初始化
+//        //必須調用初始化
 //        OkHttpUtils.init(this);
-//        //以下都不是必须的，根据需要自行选择
+//        //以下都不是必須的，根據需要自行選擇
 //        OkHttpUtils.getInstance()//
-//                .debug("OkHttpUtils")                                              //是否打开調试
+//                .debug("OkHttpUtils")                                              //是否打開調試
 //                .setConnectTimeout(*//*OkHttpUtils.DEFAULT_MILLISECONDS*//* 8000)               //全局的連接超時時間
 //                .setReadTimeOut(OkHttpUtils.DEFAULT_MILLISECONDS)                  //全局的讀取超時時間
 //                .setWriteTimeOut(OkHttpUtils.DEFAULT_MILLISECONDS)                 //全局的寫入超時時間

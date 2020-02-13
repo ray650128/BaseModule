@@ -15,13 +15,13 @@ import tw.com.lig.module_base.BuildConfig;
 /**
  * 作者：${weihaizhou} on 2017/8/30 11:48
  *
- * 跳轉修改权限管理界面
+ * 跳轉修改權限管理界面
  */
 public class LaunchPermissionSetting {
     /**
      * Build.MANUFACTURER
      */
-    private static final String MANUFACTURER_HUAWEI = "Huawei";//华為
+    private static final String MANUFACTURER_HUAWEI = "Huawei";//華為
     private static final String MANUFACTURER_MEIZU = "Meizu";//魅族
     private static final String MANUFACTURER_XIAOMI = "Xiaomi";//小米
     private static final String MANUFACTURER_SONY = "Sony";//索尼
@@ -29,13 +29,13 @@ public class LaunchPermissionSetting {
     private static final String MANUFACTURER_LG = "LG";
     private static final String MANUFACTURER_VIVO = "vivo";
     private static final String MANUFACTURER_SAMSUNG = "samsung";//三星
-    private static final String MANUFACTURER_LETV = "Letv";//乐视
-    private static final String MANUFACTURER_ZTE = "ZTE";//中兴
+    private static final String MANUFACTURER_LETV = "Letv";//樂視
+    private static final String MANUFACTURER_ZTE = "ZTE";//中興
     private static final String MANUFACTURER_YULONG = "YuLong";//酷派
-    private static final String MANUFACTURER_LENOVO = "LENOVO";//联想
+    private static final String MANUFACTURER_LENOVO = "LENOVO";//聯想
 
     /**
-     * 此函數可以自己定义
+     * 此函數可以自己定義
      *
      * @param activity
      */
@@ -135,7 +135,7 @@ public class LaunchPermissionSetting {
     }
 
     /**
-     * 只能打开到自帶安全軟件
+     * 只能打開到自帶安全軟件
      *
      * @param activity
      */

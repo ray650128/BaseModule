@@ -52,7 +52,7 @@ class RecyclerCommonAdapter2<T>( private val layoutId: Int, private var items: L
         }*/
     }
 
-    //注意init是個函數形式的輸入参數
+    //注意init是個函數形式的輸入參數
     class ItemHolder<in T>(val view: View, val init: (View, T) -> Unit) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
         fun bind(item: T) {
             init(view, item)

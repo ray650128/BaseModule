@@ -32,8 +32,8 @@ public class MyViewPager extends ViewPager {
 
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                getParent().requestDisallowInterceptTouchEvent(true);// 不要拦截,
-                // 这样是為了保證ACTION_MOVE調用
+                getParent().requestDisallowInterceptTouchEvent(true);// 不要攔截,
+                // 這樣是為了保證ACTION_MOVE調用
                 startX = (int) ev.getRawX();
                 startY = (int) ev.getRawY();
                 break;
@@ -42,25 +42,25 @@ public class MyViewPager extends ViewPager {
                 int endX = (int) ev.getRawX();
                 int endY = (int) ev.getRawY();
 
-                if (Math.abs(endX - startX) > Math.abs(endY - startY)) {// 左右滑动
-                    if (endX > startX) {// 右划
-                        if (getCurrentItem() == 0) {// 第一個頁面, 需要父控件拦截
+                if (Math.abs(endX - startX) > Math.abs(endY - startY)) {// 左右滑動
+                    if (endX > startX) {// 右劃
+                        if (getCurrentItem() == 0) {// 第一個頁面, 需要父控件攔截
 //                            getParent().requestDisallowInterceptTouchEvent(false);
                         }
-                    } else {// 左划
-                        if (getCurrentItem() == 2) {// (话題)
-                            // 需要拦截
+                    } else {// 左劃
+                        if (getCurrentItem() == 2) {// (話題)
+                            // 需要攔截
 //                            getParent().requestDisallowInterceptTouchEvent(false);
                             if (!isScrollable){
                                 return false;
                             }
                         }
                     }
-                } else {// 上下滑动
+                } else {// 上下滑動
                   /*  if (mListener != null) {
-                        if (endY >= startY) {// 向下滑动
+                        if (endY >= startY) {// 向下滑動
                             mListener.canPullDown();
-                        } else {// 向上滑动
+                        } else {// 向上滑動
                             mListener.canPullUp();
                         }
 

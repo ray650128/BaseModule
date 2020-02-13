@@ -13,13 +13,13 @@ import tw.com.lig.module_base.R;
 
 /**
  * 描述：
- * 作者： 天天童话丶
+ * 作者： 天天童話丶
  * 時間： 2017/4/10.
  */
 public class BouncingView extends View {
 
     private Paint mPaint;
-    private int mArcHeight; //当前的弧高
+    private int mArcHeight; //當前的弧高
     private int mMaxArcHeight; //弧高最大高度
     private Status mStatus = Status.NONE;
     private Path mPath = new Path();
@@ -57,13 +57,13 @@ public class BouncingView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         int currentPointY = 0;
-        //不断控制这個Y值的變化
+        //不斷控制這個Y值的變化
         switch (mStatus) {
             case NONE:
                 currentPointY = 0;
                 break;
             case STATUS_SMOOTH_UP:
-                /**currentPointY的值 -- 跟mArcHeight的變化是一样的
+                /**currentPointY的值 -- 跟mArcHeight的變化是一樣的
                  * getHeight()~0        0~mMaxArcHeight
                  * currentPointY/getHeight = 1 - mArcHeight/mMaxArcHeight
                  */
@@ -76,7 +76,7 @@ public class BouncingView extends View {
 
         mPath.reset();
         mPath.moveTo(0, currentPointY);
-        mPath.quadTo(getWidth() / 2, currentPointY - mArcHeight, getWidth(), currentPointY);//贝塞尔曲线 锚點座標 终點座標
+        mPath.quadTo(getWidth() / 2, currentPointY - mArcHeight, getWidth(), currentPointY);//貝塞爾曲線 錨點座標 終點座標
         mPath.lineTo(getWidth(), getHeight());
         mPath.lineTo(0, getHeight());
         mPath.close();
@@ -89,7 +89,7 @@ public class BouncingView extends View {
             this.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    //recyclerView 動畫显示
+                    //recyclerView 動畫顯示
                     animationListener.showContent();
                 }
             }, 500);

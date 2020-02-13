@@ -22,7 +22,7 @@ import tw.com.lig.module_base.widget.LoadingView;
 import org.greenrobot.eventbus.EventBus;
 
 //import com.umeng.analytics.MobclickAgent;
-//import javax.inject.Inject;  //这個是注入presenter用到的
+//import javax.inject.Inject;  //這個是注入presenter用到的
 
 //import butterknife.ButterKnife;
 //import butterknife.Unbinder;
@@ -72,7 +72,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends RxLifeCycleF
 
 
     /**
-     * 是否进行懒載入
+     * 是否進行懶載入
      * @return
      */
     protected boolean isLazy(){
@@ -184,8 +184,8 @@ public abstract class BaseFragment<P extends BasePresenter> extends RxLifeCycleF
 
     /**
      * <p>
-     * 獲取布局Builder，主要用于自定义每個頁面的progress、empty、error等View.
-     * 需要自定义的頁面需自行覆盖實現.
+     * 獲取佈局Builder，主要用於自定義每個頁面的progress、empty、error等View.
+     * 需要自定義的頁面需自行覆蓋實現.
      * </p>
      *
      * @return
@@ -213,7 +213,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends RxLifeCycleF
 
     @Override
     public void onClickRetry() {
-        showProgressView();//显示載入进度条
+        showProgressView();//顯示載入進度條
         initData();
 
     }
@@ -239,7 +239,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends RxLifeCycleF
         }
 //        mUnbinder = null;
         if (mPresenter != null) {
-            mPresenter.onDestroy();//释放资源
+            mPresenter.onDestroy();//釋放資源
         }
 
         this.mPresenter = null;
@@ -252,7 +252,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends RxLifeCycleF
     }
 
     /**
-     * 显示無資料頁面
+     * 顯示無資料頁面
      */
     public void showEmptyView() {
         if (null != mBaseLayout) {
@@ -260,11 +260,11 @@ public abstract class BaseFragment<P extends BasePresenter> extends RxLifeCycleF
         }
     }
     protected String getEmptyTipMsg() {
-        return "亲~~暫無记錄";
+        return "親~~暫無記錄";
     }
 
     /**
-     * 显示載入失败的頁面
+     * 顯示載入失敗的頁面
      */
     public void showErrorView() {
         if (null != mBaseLayout) {
@@ -275,7 +275,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends RxLifeCycleF
 
         }
     }
-    //显示自定义頁面
+    //顯示自定義頁面
     public void showUserDefinedView(View view){
         if (null != view) {
             mBaseLayout.showUserDefinedView(view);
@@ -283,7 +283,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends RxLifeCycleF
     }
 
     /**
-     * 显示載入进度条，若有網路請求，頁面初始化就載入
+     * 顯示載入進度條，若有網路請求，頁面初始化就載入
      */
     public void showProgressView() {
         if (null != mBaseLayout) {
@@ -292,7 +292,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends RxLifeCycleF
     }
 
     /**
-     * 显示網路請求成功的頁面
+     * 顯示網路請求成功的頁面
      */
     public void showContentView() {
         if (null != mBaseLayout) {
@@ -301,7 +301,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends RxLifeCycleF
     }
 
     /**
-     * 載入dialog 的背景颜色
+     * 載入dialog 的背景顏色
      *
      * @return
      */
@@ -349,7 +349,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends RxLifeCycleF
 //    public void stopProgressDialog() {
 //
 //    }
-    /**是使用activity的progressDialog还是使用自己的progressDialog*/
+    /**是使用activity的progressDialog還是使用自己的progressDialog*/
     protected boolean useOwnProgressDialog(){
         return false;
     }
@@ -404,7 +404,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends RxLifeCycleF
     @Override
     public void onPause() {
         super.onPause();
-//        MobclickAgent.onPause(mActivity);//應該不需要調用这個，在baseactivity裡面已经調用了
+//        MobclickAgent.onPause(mActivity);//應該不需要調用這個，在baseactivity裡面已經調用了
 //        MobclickAgent.onPageEnd(this.getClass().getName());
     }
 
@@ -494,7 +494,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends RxLifeCycleF
 
     }
     /**
-     * 没有更多資料了
+     * 沒有更多資料了
      */
     protected void finishLoadMoreWithNoMoreData(){
         if (smartRefreshLayout != null) {

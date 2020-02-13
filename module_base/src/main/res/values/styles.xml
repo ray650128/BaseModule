@@ -30,7 +30,7 @@
         <item name="android:windowBackground" >@drawable/splash_drawable</item>
         <!--<item name="android:windowFullscreen">true</item>-->
 
-        <!--<item name="android:windowDisablePreview">true</item>   据说这個可以解决8.0华為手機在背景透明情況下的闪退問題-->
+        <!--<item name="android:windowDisablePreview">true</item>   據說這個可以解決8.0華為手機在背景透明情況下的閃退問題-->
         <!--<item name="android:windowAnimationStyle">@style/SlideRightAnimation</item>-->
 
         <!--<item name="android:windowTranslucentNavigation">true</item>-->
@@ -50,7 +50,7 @@
         <item name="android:background">@drawable/btn_oval_selector2</item>
     </style>
 
-    <!--分隔线的基本样式-->
+    <!--分隔線的基本樣式-->
     <style name="LineStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0.5dp</item>
@@ -84,7 +84,7 @@
         <item name="android:layout_marginLeft">0dp</item>
         <item name="android:layout_marginRight">0dp</item>
     </style>
-    <!-- 操作项样式end -->
+    <!-- 操作項樣式end -->
     <style name="bottomDialogAnim" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/dialog_enter</item>
         <item name="android:windowExitAnimation">@anim/dialog_exit</item>
@@ -133,7 +133,7 @@
         <item name="fontPath">fonts/pingfangmedium.ttf</item>
     </style>-->
 
-    <!--选择城市的popupwindow的显示及隐藏動畫-->
+    <!--選擇城市的popupwindow的顯示及隱藏動畫-->
     <style name="popwin_anim_style">
         <item name="android:windowEnterAnimation">@anim/popshow</item>
         <item name="android:windowExitAnimation">@anim/pophide</item>
@@ -147,7 +147,7 @@
         <item name="android:maxWidth">60dp</item>
         <item name="android:maxHeight">60dp</item>
     </style>
-    <!-- 載入彈框样式 -->
+    <!-- 載入彈框樣式 -->
     <style name="LightDialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowIsFloating">true</item>

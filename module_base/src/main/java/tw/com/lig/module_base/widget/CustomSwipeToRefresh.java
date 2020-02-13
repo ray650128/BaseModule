@@ -18,13 +18,13 @@ public class CustomSwipeToRefresh extends SwipeRefreshLayout {
 
     public CustomSwipeToRefresh(Context context) {
         super(context);
-        //判断用户在进行滑动操作的最小距離
+        //判斷用戶在進行滑動操作的最小距離
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
     public CustomSwipeToRefresh(Context context, AttributeSet attrs) {
         super(context, attrs);
-        //判断用户在进行滑动操作的最小距離
+        //判斷用戶在進行滑動操作的最小距離
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
@@ -39,10 +39,10 @@ public class CustomSwipeToRefresh extends SwipeRefreshLayout {
 
             case MotionEvent.ACTION_MOVE:
                 float eventX = event.getX();
-                //獲取水平移动距離
+                //獲取水平移動距離
                 float xDiff = Math.abs(eventX - mPrevX);
-                //当水平移动距離大于滑动操作的最小距離的時候就认為进行了横向滑动
-                //不进行事件拦截,并將这個事件交给子View处理
+                //當水平移動距離大於滑動操作的最小距離的時候就認為進行了橫向滑動
+                //不進行事件攔截,並將這個事件交給子View處理
                 if (xDiff > mTouchSlop) {
                     return false;
                 }

@@ -35,15 +35,15 @@ public class ImageCompressUtils {
             @Override
             public void run() {
                 Luban.with(context)
-                        .load(path) // 传入要压缩的圖片列表
+                        .load(path) // 傳入要壓縮的圖片列表
 //                        .setTargetDir()
-                        .ignoreBy(100) // 忽略不压缩圖片的大小
-//                        .setTargetDir(Constant.compressImagePath) // 設定压缩後文件儲存位置
+                        .ignoreBy(100) // 忽略不壓縮圖片的大小
+//                        .setTargetDir(Constant.compressImagePath) // 設定壓縮後檔案儲存位置
                         .setCompressListener(new top.zibin.luban.OnCompressListener() { //設定回調
 
                             @Override
                             public void onStart() {
-                                // TODO 压缩开始前調用，可以在方法内启动 loading UI
+                                // TODO 壓縮開始前調用，可以在方法內啟動 loading UI
                                 //ToastUtils.show(getContext(), "onStart");
                                 new Handler(Looper.getMainLooper()).post(new Runnable() {
                                     @Override
@@ -78,7 +78,7 @@ public class ImageCompressUtils {
                                     }
                                 });
                             }
-                        }).launch();    //启动压缩
+                        }).launch();    //啟動壓縮
             }
         }).start();
     }
