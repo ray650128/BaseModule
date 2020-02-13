@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_progress_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<!--    <ProgressBar
+        android:id="@+id/dialog_progress"
+        android:layout_width="45dp"
+        android:progressDrawable="@drawable/progressbar_drawable"
+        android:layout_height="45dp"
+        android:layout_gravity="center"/>-->
+   <!-- <com.ldoublem.loadingviewlib.view.LVRingProgress
+        android:id="@+id/ring_progress"
+        android:layout_gravity="center"
+
+        android:layout_width="45dp"
+        android:layout_height="45dp" />-->
+  <!--  <com.app.anxinfenqi.module_base.widget.RotateLoading
+        android:id="@+id/rotateloading"
+        android:layout_width="@dimen/progress_size"
+        android:layout_height="@dimen/progress_size"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"
+        app:loading_speed="11"
+        app:loading_width="5dp" />-->
+   <!-- <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:lottie_rawRes="@raw/cube_anim"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />-->
+  <!--  <ImageView
+        android:id="@+id/iv_loading"
+        style="@style/WrapWrap"
+        android:layout_gravity="center"
+        android:background="@drawable/progress_dialog_anim" />-->
+
+<!--  android:background="@drawable/progress_dialog_bg"-->
+    <LinearLayout
+        style="@style/WrapWrap.Vertical"
+       android:layout_gravity="center"
+        android:background="@drawable/progress_dialog_bg"
+        android:padding="40dp">
+
+        <ImageView
+            android:id="@+id/iv_loading"
+            style="@style/WrapWrap"
+            android:layout_gravity="center"
+            android:background="@drawable/progress_dialog_anim" />
+
+    </LinearLayout>
+</FrameLayout>

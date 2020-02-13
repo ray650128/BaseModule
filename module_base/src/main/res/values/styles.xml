@@ -1,0 +1,164 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:textViewStyle">@style/AppTheme.Widget.TextView</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <!--<item name="android:windowAnimationStyle">@style/SlideRightAnimation</item>-->
+
+    </style>
+    <style name="MainTheme" parent="AppTheme">
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+
+    <style name="BaseAppTheme" parent="AppTheme">
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+        <item name="android:textColor">@color/grey3</item>
+        <!--<item name="android:windowAnimationStyle">@style/SlideRightAnimation</item>-->
+    </style>
+    <style name="greyAppTheme" parent="AppTheme">
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+<!--        <item name="android:windowBackground">@color/color_f4</item>-->
+    </style>
+    <style name="splash" parent="AppTheme">
+        <item name="android:windowBackground" >@drawable/splash_drawable</item>
+        <!--<item name="android:windowFullscreen">true</item>-->
+
+        <!--<item name="android:windowDisablePreview">true</item>   据说这個可以解决8.0华為手機在背景透明情況下的闪退問題-->
+        <!--<item name="android:windowAnimationStyle">@style/SlideRightAnimation</item>-->
+
+        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+    </style>
+    <style name="BtnStyle">
+        <item name="android:layout_marginLeft">@dimen/marginLeft_15</item>
+        <item name="android:layout_marginRight">@dimen/marginLeft_15</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/item_height</item>
+        <item name="android:background">@drawable/btn_oval_selector</item>
+        <item name="android:textColor">@drawable/btn_login_text_selector</item>
+        <item name="android:textSize">@dimen/text_14</item>
+        <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
+    </style>
+    <style name="BtnStyle2" parent="BtnStyle">
+        <item name="android:background">@drawable/btn_oval_selector2</item>
+    </style>
+
+    <!--分隔线的基本样式-->
+    <style name="LineStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">@color/color_dbd</item>
+    </style>
+
+    <style name="Mdialog" parent="@android:style/Theme.Dialog" data-filtered="filtered">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowBackground"> @android:color/transparent </item>
+    </style>
+    <style name="Mdialog3" parent="@android:style/Theme.Dialog" data-filtered="filtered">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowBackground"> @android:color/transparent </item>
+    </style>
+
+    <style name="NoneMdialog" parent="Mdialog" data-filtered="filtered">
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="NoneMdialog2" parent="Mdialog" data-filtered="filtered">
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:layout_marginLeft">0dp</item>
+        <item name="android:layout_marginRight">0dp</item>
+    </style>
+    <!-- 操作项样式end -->
+    <style name="bottomDialogAnim" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_exit</item>
+    </style>
+    <style name="BottomTabStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:button">@null</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@drawable/text_selector2</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="CustomDialog" parent="Animation.AppCompat.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="whitebg" parent="AppTheme">
+        <item name="android:windowBackground" >@color/white</item>
+    </style>
+    <style name="greybg" parent="AppTheme">
+        <item name="android:windowBackground" >@color/greyf2</item>
+    </style>
+
+    <style name="share_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@color/grey3</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="AppTheme.Widget"/>
+
+    <style name="AppTheme.Widget.TextView" parent="android:Widget.Holo.Light.TextView">
+        <!--<item name="fontPath">fonts/pingfangmedium.ttf</item>-->
+    </style>
+<!--    <style name="TextAppearance.FontPath" parent="android:TextAppearance">
+        &lt;!&ndash; Custom Attr&ndash;&gt;
+        <item name="fontPath">fonts/pingfangmedium.ttf</item>
+    </style>-->
+
+    <!--选择城市的popupwindow的显示及隐藏動畫-->
+    <style name="popwin_anim_style">
+        <item name="android:windowEnterAnimation">@anim/popshow</item>
+        <item name="android:windowExitAnimation">@anim/pophide</item>
+    </style>
+
+    <style name="mProgress_circle">
+        <!--<item name="android:indeterminateDrawable">@drawable/progressbar_circle_1</item>-->
+        <item name="android:minWidth">25dp</item>
+        <item name="android:minHeight">25dp</item>
+        <item name="android:progressDrawable">@drawable/progressbar_circle_1</item>
+        <item name="android:maxWidth">60dp</item>
+        <item name="android:maxHeight">60dp</item>
+    </style>
+    <!-- 載入彈框样式 -->
+    <style name="LightDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan
+        </item>
+    </style>
+
+    <style name="LightProgressDialog" parent="@style/LightDialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>

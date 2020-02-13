@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6C85FC</color>
+    <color name="colorPrimaryDark">#4d000000</color>
+    <color name="colorAccent">#6C85FC</color>
+    <color name="statusBarColor">@android:color/transparent</color>
+    <color name="greyba">#bababa</color>
+    <!--色值定义格式abcdef 為color_ace 取色值的第一個字母-->
+    <color name="white">@color/color_fff</color>
+    <color name="color_fff">#fff</color>
+    <color name="color_f0f0f0">#f0f0f0</color>
+    <color name="color_f43">#f44336</color>
+    <color name="color_5c5">#53cd5e</color>
+    <color name="light_blue">#5387fb</color>
+    <color name="blue">#3E65F1</color>
+    <color name="color_eee">#eee</color>
+    <color name="grey_8a">#8a000000</color>
+    <color name="color_999">#999</color>
+    <color name="color_666">#666</color>
+    <color name="color_333">#333</color>
+    <color name="color_777">#757575</color>
+    <color name="color_dbd">#dbdbdb</color>
+    <color name="greyde">#de000000</color>
+    <color name="grey40">#404040</color>
+    <color name="greyf8">#f8f8f8</color>
+    <color name="grey8">#888888</color>
+    <color name="greye5">#e5e5e5</color>
+    <color name="red_pressed">#dd3c31</color>
+    <color name="greydc">#dcdcdc</color>
+    <color name="greyb2">#b2b2b2</color>
+    <color name="orange">#f86936</color>
+    <color name="gray_bc">#bdbcbc</color>
+    <color name="lighter_orange">#8af44336</color>
+    <color name="color_fb3">#f8b636</color>
+    <color name="color_f46">#f44336</color>
+    <color name="color_greyde3">#de333333</color>
+    <color name="color_f3">#f3f3f3</color>
+    <color name="grey9">#999999</color>
+    <color name="color_000">#000000</color>
+    <color name="grey3">#333333</color>
+    <color name="grey4">#444444</color>
+
+    <color name="grey6">#666666</color>
+    <color name="greyd">#dddddd</color>
+    <color name="greyc">#cccccc</color>
+    <color name="greye">#eeeeee</color>
+    <color name="greyf">#696969</color>
+    <color name="greyg">#F6F6F6</color>
+    <color name="colore8">#e8e8e8</color>
+    <color name="greyh">#FF6464</color>
+    <color name="greya">#aaaaaa</color>
+    <color name="grey7">#777777</color>
+    <color name="greyda">#dadada</color>
+    <color name="greyf2">#f2f2f2</color>
+    <color name="greyb">#bbbbbb</color>
+    <color name="greyf7">#f7f7f7</color>
+    <!--<color name="purple">#BC5BFF</color>-->
+    <!--<color name="blue_purple">#811eff</color>-->
+
+    <color name="purple">#FD9044</color>
+    <color name="blue_purple">#ff9100</color>
+    <color name="text_unselect_tab">#141417</color>
+    <color name="cancel_color">#FC935C</color>
+    <color name="semitransparent">#32000000</color>
+<!--    <color name="greyc">#CCCCCC</color>-->
+</resources>

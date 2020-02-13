@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">module_base</string>
+    <string name="permission_launch_camera">相機與讀取手機儲存</string>
+    <string name="permission_read_contacts">讀取聯繫人</string>
+    <string name="permission_loaction">定位與通话及手機信息</string>
+    <string name="permission_external_storageand">讀取手機儲存</string>
+    <string name="permission_call_up">打電話</string>
+    <string name="permission_device_info">獲取手機信息</string>
+
+    <string name="pull_to_refresh">下拉可以刷新</string>
+    <string name="release_to_refresh">鬆開可以刷新</string>
+    <string name="lastUpdateTime">最近更新：%s</string>
+    <string name="load_full">已載入全部</string>
+    <string name="no_data">暫無資料</string>
+    <string name="more">載入中</string>
+
+    <string name="refreshing">資料刷新中</string>
+    <string name="refresh_succeed">刷新成功</string>
+    <string name="refresh_fail">刷新失败</string>
+    <string name="pullup_to_load">上拉載入更多</string>
+    <string name="release_to_load">释放立即載入</string>
+    <!--<string name="loading">正在載入…</string>-->
+    <string name="loading">頁面載入中</string>
+    <string name="load_succeed">載入成功</string>
+    <string name="load_fail">載入失败</string>
+    <string name="retry">無網路信号\n請檢查網路是否正常後，點击按钮重试</string>
+    <string name="error_unknown">未知異常,請聯繫客服人员</string>
+
+</resources>
