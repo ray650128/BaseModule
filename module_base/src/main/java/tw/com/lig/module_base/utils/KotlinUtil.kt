@@ -31,6 +31,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.graphics.drawable.RoundedBitmapDrawable
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -734,7 +735,12 @@ fun ImageView.tint(  color:Int,drawable:Int){
     setImageDrawable(tintIcon)
 }*/
 
-
+// 实现
+inline fun <reified T : Activity> Activity.startActivity(vararg args: Pair<String, Any>) {
+    val intent = Intent(this, T::class.java)
+    intent.putExtras(bundleOf(*args))
+    startActivity(intent)
+}
 
 
 
